@@ -14,23 +14,40 @@ UDP_PORT       = 10000
 MICRO_COMMANDS = ["TL" , "LT"]
 FILENAME        = "values.txt"
 LAST_VALUE      = ""
+HEADER = "DMST"
 
 class ThreadedUDPRequestHandler(socketserver.BaseRequestHandler):
+        def checkHeader(self ,data):
+                message = str(data,"UTF-8")
+                header = HEADER+":"
+                if message.startswith(header):
+                        return message[len(header):]
+                else:
+                        return ""
 
-    def handle(self):
-        data = self.request[0].strip()
-        socket = self.request[1]
-        current_thread = threading.current_thread()
-        print("{}: client: {}, wrote: {}".format(current_thread.name, self.client_address, data))
-        if data != "":
-                        if data in MICRO_COMMANDS: # Send message through UART
-                                sendUARTMessage(data)
-                                
-                        elif data == "getValues()": # Sent last value received from micro-controller
-                                socket.sendto(LAST_VALUE, self.client_address) 
-                                # TODO: Create last_values_received as global variable      
-                        else:
-                                print("Unknown message: ",data)
+        def handle(self):
+                data = self.request[0].strip()
+                socket = self.request[1]
+                current_thread = threading.current_thread()
+                message = self.checkHeader(data)
+                if message != None:
+                        print("{}: client: {}, wrote: {}".format(current_thread.name, self.client_address, message))
+                        if message != "":
+                                        if message in MICRO_COMMANDS: # Send message through UART
+                                                sendUARTMessage(message)
+                                                
+                                        elif message == "getValues()": # Sent last value received from micro-controller
+                                                socket.sendto(LAST_VALUE, self.client_address) 
+                                                # TODO: Create last_values_received as global variable      
+                                        else:
+                                                print("Unknown message: ",message)
+                else :
+                        print("Réception d'un message qui n'est pas nous ")
+
+
+
+
+
 
 class ThreadedUDPServer(socketserver.ThreadingMixIn, socketserver.UDPServer):
     pass
@@ -84,13 +101,8 @@ if __name__ == '__main__':
         try:
                 server_thread.start()
                 print("Server started at {} port {}".format(HOST, UDP_PORT))
-                while ser.isOpen() : 
-                        # time.sleep(100)
-                        if (ser.inWaiting() > 0): # if incoming bytes are waiting 
-                                data_str = ser.read(ser.inWaiting()) 
-                                f.write(data_str)
-                                LAST_VALUE = data_str
-                                print(data_str)
+                
+                server_thread.join()
         except (KeyboardInterrupt, SystemExit):
                 server.shutdown()
                 server.server_close()

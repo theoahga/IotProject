@@ -37,7 +37,8 @@ class ThreadedUDPRequestHandler(socketserver.BaseRequestHandler):
                                                 sendUARTMessage(message)
                                                 
                                         elif message == "getValues()": # Sent last value received from micro-controller
-                                                socket.sendto(LAST_VALUE, self.client_address) 
+                                                print("getvalues(): ", message)
+                                                #socket.sendto(LAST_VALUE, self.client_address) 
                                                 # TODO: Create last_values_received as global variable      
                                         else:
                                                 print("Unknown message: ",message)

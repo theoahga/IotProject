@@ -5,64 +5,64 @@ cmake_minimum_required(VERSION 3.0.0)
 include_directories("/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/source")
 
 
-set(YOTTA_AUTO_BLE_HEADER_FILES
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattService.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/URIBeaconConfigService.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattServer.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/UUID.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GapAdvertisingParams.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GapScanningParams.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/BLEInstanceBase.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/UARTService.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/HealthThermometerService.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattCharacteristic.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattClient.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/deprecate.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/EddystoneService.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattServerEvents.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/HeartRateService.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/BLE.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/blecommon.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/SecurityManager.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/BatteryService.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/EnvironmentalService.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/EddystoneConfigService.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GapEvents.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/DFUService.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/DiscoveredService.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/FunctionPointerWithContext.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/CallChainOfFunctionPointersWithContext.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/DeviceInformationService.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/CharacteristicDescriptorDiscovery.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/Gap.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/LinkLossService.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/iBeacon.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/BLEProtocol.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/ServiceDiscovery.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattCallbackParamTypes.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/DiscoveredCharacteristic.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/SafeBool.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GapAdvertisingData.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattAttribute.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/DiscoveredCharacteristicDescriptor.h"
-)
-# force dependency on the config header for header files, which CMake otherwise wouldn't track:
-set_property(SOURCE ${YOTTA_AUTO_BLE_HEADER_FILES} PROPERTY OBJECT_DEPENDS "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/build/bbc-microbit-classic-gcc/yotta_config.h")
 set(YOTTA_AUTO_BLE_CPP_FILES
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/source/GapScanningParams.cpp"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/source/BLE.cpp"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/source/services/DFUService.cpp"
     "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/source/DiscoveredCharacteristic.cpp"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/source/services/UARTService.cpp"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/source/GapScanningParams.cpp"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/source/services/DFUService.cpp"
     "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/source/services/URIBeaconConfigService.cpp"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/source/BLE.cpp"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/source/services/UARTService.cpp"
 )
 # force dependency on the config header for cpp files, which CMake otherwise wouldn't track:
 set_property(SOURCE ${YOTTA_AUTO_BLE_CPP_FILES} PROPERTY OBJECT_DEPENDS "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/build/bbc-microbit-classic-gcc/yotta_config.h")
+set(YOTTA_AUTO_BLE_HEADER_FILES
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/blecommon.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/UUID.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/BLEInstanceBase.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GapScanningParams.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/CallChainOfFunctionPointersWithContext.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/BatteryService.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/DiscoveredCharacteristicDescriptor.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/BLE.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/DiscoveredService.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/ServiceDiscovery.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GapAdvertisingData.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/EnvironmentalService.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/SafeBool.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattService.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattCallbackParamTypes.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/HealthThermometerService.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/URIBeaconConfigService.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/deprecate.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/LinkLossService.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/Gap.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/DeviceInformationService.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/FunctionPointerWithContext.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/EddystoneConfigService.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GapEvents.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattAttribute.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattCharacteristic.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/SecurityManager.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/EddystoneService.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/BLEProtocol.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/DiscoveredCharacteristic.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/DFUService.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/iBeacon.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/HeartRateService.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattClient.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/CharacteristicDescriptorDiscovery.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GapAdvertisingParams.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattServer.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/services/UARTService.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/yotta_modules/ble/ble/GattServerEvents.h"
+)
+# force dependency on the config header for header files, which CMake otherwise wouldn't track:
+set_property(SOURCE ${YOTTA_AUTO_BLE_HEADER_FILES} PROPERTY OBJECT_DEPENDS "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/build/bbc-microbit-classic-gcc/yotta_config.h")
 
 
 add_library(ble
-    ${YOTTA_AUTO_BLE_HEADER_FILES}
     ${YOTTA_AUTO_BLE_CPP_FILES}
+    ${YOTTA_AUTO_BLE_HEADER_FILES}
 )
 
 yotta_postprocess_target(LIBRARY ble)

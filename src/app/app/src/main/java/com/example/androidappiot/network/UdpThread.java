@@ -6,10 +6,11 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.concurrent.BlockingQueue;
 
-public class UdpThread extends Thread{
+public class UdpThread extends Thread {
     private BlockingQueue<String> queue;
     private String ip;
     private String port;
+    private DatagramSocket UDPSocket; // structure Java permettant d'acceder au réseau (UDP)
 
     public UdpThread(BlockingQueue<String> queue, String ip, String port){
         this.queue = queue;

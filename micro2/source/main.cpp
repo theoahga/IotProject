@@ -79,6 +79,8 @@ void send_RF(ManagedString s){
 void send_encrypt_RF(ManagedString s){
     char* encryptedText = encrypt(const_cast<char*>(s.toCharArray()), key);
 
+    send_RF(encryptedText);
+    
     screen.display_line(1,0,encryptedText);
 
     char* decryptedText = decrypt(encryptedText, key);

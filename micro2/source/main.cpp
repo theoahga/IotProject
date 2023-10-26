@@ -21,7 +21,6 @@ char ORDER[] = "LT";
 char encryptedText[MAX_TEXT_LENGTH];
 char decryptedText[MAX_TEXT_LENGTH];
 
-//char key[] = "bcdefghijklmnopqrstuvwxyz";
 int key = 12341;
 
 char* encrypt(char *text, int key) {
@@ -63,7 +62,7 @@ ManagedString decode_RF(ManagedString s){
 void onData(MicroBitEvent)
 {
     ManagedString s = uBit.radio.datagram.recv();
-    //screen.display_line(0,0,s.toCharArray());
+    screen.display_line(6,0,decode_RF(s).toCharArray());
     //screen.update_screen();
     
     //screen.display_line(3,0,s.substring(0,sizeof(CODE)).toCharArray());

@@ -22,7 +22,7 @@ char encryptedText[MAX_TEXT_LENGTH];
 char decryptedText[MAX_TEXT_LENGTH];
 
 //char key[] = "bcdefghijklmnopqrstuvwxyz";
-int key = 3;
+int key = 12341;
 
 char* encrypt(char *text, int key) {
     int textLength = strlen(text);
@@ -52,7 +52,6 @@ void send_RF(ManagedString s){
 }
 
 void send_encrypt_RF(ManagedString s){
-    //char* encryptedText = encrypt(s.toCharArray(), key);
     char* encryptedText = encrypt(const_cast<char*>(s.toCharArray()), key);
     send_RF(encryptedText);
 }

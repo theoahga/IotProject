@@ -5,27 +5,27 @@ cmake_minimum_required(VERSION 3.0.0)
 include_directories("/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source")
 
 
-set(YOTTA_AUTO_MICROBIT-SAMPLES_HEADER_FILES
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/font.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.h"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.h"
-)
-# force dependency on the config header for header files, which CMake otherwise wouldn't track:
-set_property(SOURCE ${YOTTA_AUTO_MICROBIT-SAMPLES_HEADER_FILES} PROPERTY OBJECT_DEPENDS "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/build/bbc-microbit-classic-gcc/yotta_config.h")
 set(YOTTA_AUTO_MICROBIT-SAMPLES_CPP_FILES
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp"
     "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp"
     "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp"
-    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp"
 )
 # force dependency on the config header for cpp files, which CMake otherwise wouldn't track:
 set_property(SOURCE ${YOTTA_AUTO_MICROBIT-SAMPLES_CPP_FILES} PROPERTY OBJECT_DEPENDS "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/build/bbc-microbit-classic-gcc/yotta_config.h")
+set(YOTTA_AUTO_MICROBIT-SAMPLES_HEADER_FILES
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/font.h"
+    "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.h"
+)
+# force dependency on the config header for header files, which CMake otherwise wouldn't track:
+set_property(SOURCE ${YOTTA_AUTO_MICROBIT-SAMPLES_HEADER_FILES} PROPERTY OBJECT_DEPENDS "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/build/bbc-microbit-classic-gcc/yotta_config.h")
 
 
 add_executable (microbit-samples
-    ${YOTTA_AUTO_MICROBIT-SAMPLES_HEADER_FILES}
     ${YOTTA_AUTO_MICROBIT-SAMPLES_CPP_FILES}
+    ${YOTTA_AUTO_MICROBIT-SAMPLES_HEADER_FILES}
 )
 set_target_properties(microbit-samples PROPERTIES ENABLE_EXPORTS ON)
 

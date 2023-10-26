@@ -15,7 +15,7 @@ ym/microbit-dal/source/microbit-dal.a(MicroBitListener.cpp.obj)
 ym/microbit-dal/source/microbit-dal.a(MicroBitSystemTimer.cpp.obj)
                               source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj (system_timer_current_time())
 ym/microbit-dal/source/microbit-dal.a(ManagedString.cpp.obj)
-                              source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj (ManagedString::~ManagedString())
+                              source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj (ManagedString::~ManagedString())
 ym/microbit-dal/source/microbit-dal.a(MicroBitEvent.cpp.obj)
                               ym/microbit/source/microbit.a(MicroBit.cpp.obj) (MicroBitEvent::MicroBitEvent())
 ym/microbit-dal/source/microbit-dal.a(MicroBitImage.cpp.obj)
@@ -227,9 +227,9 @@ ym/mbed-classic/existing/mbed-classic.a(FileBase.cpp.obj)
 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uhi.o)
                               ym/nrf51-sdk/source/nrf51-sdk.a(device_manager_peripheral.c.obj) (__gnu_thumb1_case_uhi)
 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
-                              source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj (__aeabi_uidiv)
+                              source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj (__aeabi_uidiv)
 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
-                              source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj (__aeabi_idiv)
+                              source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj (__aeabi_idiv)
 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
                               /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
@@ -383,7 +383,7 @@ ym/mbed-classic/existing/mbed-classic.a(FileBase.cpp.obj)
 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strcmp.o)
                               ym/microbit-dal/source/microbit-dal.a(ManagedString.cpp.obj) (strcmp)
 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strlen-stub.o)
-                              source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj (strlen)
+                              source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj (strlen)
 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strncmp.o)
                               ym/mbed-classic/existing/mbed-classic.a(FileBase.cpp.obj) (strncmp)
 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strncpy.o)
@@ -464,6 +464,22 @@ Discarded input sections
  .data          0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
  .bss           0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
  .ARM.extab     0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .text          0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .data          0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .bss           0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .text          0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .data          0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .bss           0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .text._ZN7ssd130621display_video_reverseEv
+                0x0000000000000000       0x24 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .text._ZN7ssd13069power_offEv
+                0x0000000000000000        0xe source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .text._ZN7ssd13068power_onEv
+                0x0000000000000000        0xa source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .text._ZN7ssd130616buffer_set_pixelEPhhhh
+                0x0000000000000000       0x30 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .text._ZN7ssd130612display_charEhhh
+                0x0000000000000000       0x28 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
  .text          0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
  .data          0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
  .bss           0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
@@ -482,22 +498,6 @@ Discarded input sections
                 0x0000000000000000       0x14 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
  .bss.encryptedText
                 0x0000000000000000       0x14 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
- .text          0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .data          0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .bss           0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .text._ZN7ssd130621display_video_reverseEv
-                0x0000000000000000       0x24 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .text._ZN7ssd13069power_offEv
-                0x0000000000000000        0xe source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .text._ZN7ssd13068power_onEv
-                0x0000000000000000        0xa source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .text._ZN7ssd130616buffer_set_pixelEPhhhh
-                0x0000000000000000       0x30 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .text._ZN7ssd130612display_charEhhh
-                0x0000000000000000       0x28 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .text          0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
- .data          0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
- .bss           0x0000000000000000        0x0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
  .group         0x0000000000000000        0x8 ym/microbit/source/microbit.a(MicroBit.cpp.obj)
  .group         0x0000000000000000        0xc ym/microbit/source/microbit.a(MicroBit.cpp.obj)
  .group         0x0000000000000000        0xc ym/microbit/source/microbit.a(MicroBit.cpp.obj)
@@ -3694,10 +3694,10 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
 LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
 START GROUP
+LOAD source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+LOAD source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
 LOAD source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
 LOAD source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-LOAD source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-LOAD source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
 LOAD ym/microbit/source/microbit.a
 LOAD ym/microbit-dal/source/microbit-dal.a
 LOAD ym/ble/source/ble.a
@@ -3740,91 +3740,91 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtn.o
                 0x0000000000018158                _stack_init
                 0x0000000000018164                _mainCRTStartup
                 0x0000000000018164                _start
- .text._ZN7tsl256xC2EP8MicroBitP11MicroBitI2Chhhh
-                0x00000000000181cc       0x98 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
-                0x00000000000181cc                tsl256x::tsl256x(MicroBit*, MicroBitI2C*, unsigned char, unsigned char, unsigned char, unsigned char)
-                0x00000000000181cc                tsl256x::tsl256x(MicroBit*, MicroBitI2C*, unsigned char, unsigned char, unsigned char, unsigned char)
- .text._ZN7tsl256x13calculate_luxEtt
-                0x0000000000018264      0x148 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
-                0x0000000000018264                tsl256x::calculate_lux(unsigned short, unsigned short)
- .text._ZN7tsl256x11sensor_readEPtS0_Pm
-                0x00000000000183ac       0x68 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
-                0x00000000000183ac                tsl256x::sensor_read(unsigned short*, unsigned short*, unsigned long*)
- .text._ZN14MicroBitSerialD2Ev
-                0x0000000000018414       0x18 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x0000000000018414                MicroBitSerial::~MicroBitSerial()
-                0x0000000000018414                MicroBitSerial::~MicroBitSerial()
- .text._Z10check_dsmt13ManagedString
-                0x000000000001842c       0x28 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x000000000001842c                check_dsmt(ManagedString)
- .text._Z7send_RF13ManagedString
-                0x0000000000018454       0x34 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x0000000000018454                send_RF(ManagedString)
- .text._Z15send_encrypt_RF13ManagedString
-                0x0000000000018488       0x28 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x0000000000018488                send_encrypt_RF(ManagedString)
- .text._Z9decode_RF13ManagedString
-                0x00000000000184b0       0x34 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x00000000000184b0                decode_RF(ManagedString)
- .text._Z6onData13MicroBitEvent
-                0x00000000000184e4       0x80 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x00000000000184e4                onData(MicroBitEvent)
- .text._Z4dataP6bme280P7tsl256x13ManagedString
-                0x0000000000018564      0x3a8 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x0000000000018564                data(bme280*, tsl256x*, ManagedString)
- .text.startup._GLOBAL__sub_I_uBit
-                0x000000000001890c       0x88 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
- .text._ZN8MicroBitD2Ev
-                0x0000000000018994       0x58 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x0000000000018994                MicroBit::~MicroBit()
-                0x0000000000018994                MicroBit::~MicroBit()
- .text.startup.main
-                0x00000000000189ec       0xd8 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x00000000000189ec                main
- .text._ZN7ssd130612send_commandEhPhh
-                0x0000000000018ac4       0x7c source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x0000000000018ac4                ssd1306::send_command(unsigned char, unsigned char*, unsigned char)
- .text._ZN7ssd130612set_contrastEh
-                0x0000000000018b40       0x18 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x0000000000018b40                ssd1306::set_contrast(unsigned char)
- .text._ZN7ssd130618set_read_directionEv
-                0x0000000000018b58       0x24 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x0000000000018b58                ssd1306::set_read_direction()
- .text._ZN7ssd130617set_display_clockEhh
-                0x0000000000018b7c       0x48 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x0000000000018b7c                ssd1306::set_display_clock(unsigned char, unsigned char)
- .text._ZN7ssd130610initializeEv
-                0x0000000000018bc4      0x190 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x0000000000018bc4                ssd1306::initialize()
- .text._ZN7ssd130613update_screenEv
-                0x0000000000018d54       0x70 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x0000000000018d54                ssd1306::update_screen()
- .text._ZN7ssd1306C2EP8MicroBitP11MicroBitI2CP11MicroBitPinh
-                0x0000000000018dc4       0x50 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x0000000000018dc4                ssd1306::ssd1306(MicroBit*, MicroBitI2C*, MicroBitPin*, unsigned char)
-                0x0000000000018dc4                ssd1306::ssd1306(MicroBit*, MicroBitI2C*, MicroBitPin*, unsigned char)
- .text._ZN7ssd130612display_lineEhhPKc
-                0x0000000000018e14       0x68 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x0000000000018e14                ssd1306::display_line(unsigned char, unsigned char, char const*)
  .text._ZN6bme28012probe_sensorEv
-                0x0000000000018e7c       0x54 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
-                0x0000000000018e7c                bme280::probe_sensor()
+                0x00000000000181cc       0x54 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+                0x00000000000181cc                bme280::probe_sensor()
  .text._ZN6bme28020get_calibration_dataEv
-                0x0000000000018ed0      0x11c source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
-                0x0000000000018ed0                bme280::get_calibration_data()
+                0x0000000000018220      0x11c source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+                0x0000000000018220                bme280::get_calibration_data()
  .text._ZN6bme280C2EP8MicroBitP11MicroBitI2Chhhhhhh
-                0x0000000000018fec      0x108 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
-                0x0000000000018fec                bme280::bme280(MicroBit*, MicroBitI2C*, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
-                0x0000000000018fec                bme280::bme280(MicroBit*, MicroBitI2C*, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
+                0x000000000001833c      0x108 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+                0x000000000001833c                bme280::bme280(MicroBit*, MicroBitI2C*, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
+                0x000000000001833c                bme280::bme280(MicroBit*, MicroBitI2C*, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
  .text._ZN6bme28011sensor_readEPmPlPt
-                0x00000000000190f4       0x98 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
-                0x00000000000190f4                bme280::sensor_read(unsigned long*, long*, unsigned short*)
+                0x0000000000018444       0x98 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+                0x0000000000018444                bme280::sensor_read(unsigned long*, long*, unsigned short*)
  .text._ZN6bme28019compensate_pressureEi
-                0x000000000001918c       0xa4 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
-                0x000000000001918c                bme280::compensate_pressure(int)
+                0x00000000000184dc       0xa4 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+                0x00000000000184dc                bme280::compensate_pressure(int)
  .text._ZN6bme28019compensate_humidityEi
-                0x0000000000019230       0x98 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
-                0x0000000000019230                bme280::compensate_humidity(int)
+                0x0000000000018580       0x98 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+                0x0000000000018580                bme280::compensate_humidity(int)
+ .text._ZN7ssd130612send_commandEhPhh
+                0x0000000000018618       0x7c source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x0000000000018618                ssd1306::send_command(unsigned char, unsigned char*, unsigned char)
+ .text._ZN7ssd130612set_contrastEh
+                0x0000000000018694       0x18 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x0000000000018694                ssd1306::set_contrast(unsigned char)
+ .text._ZN7ssd130618set_read_directionEv
+                0x00000000000186ac       0x24 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x00000000000186ac                ssd1306::set_read_direction()
+ .text._ZN7ssd130617set_display_clockEhh
+                0x00000000000186d0       0x48 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x00000000000186d0                ssd1306::set_display_clock(unsigned char, unsigned char)
+ .text._ZN7ssd130610initializeEv
+                0x0000000000018718      0x190 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x0000000000018718                ssd1306::initialize()
+ .text._ZN7ssd130613update_screenEv
+                0x00000000000188a8       0x70 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x00000000000188a8                ssd1306::update_screen()
+ .text._ZN7ssd1306C2EP8MicroBitP11MicroBitI2CP11MicroBitPinh
+                0x0000000000018918       0x50 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x0000000000018918                ssd1306::ssd1306(MicroBit*, MicroBitI2C*, MicroBitPin*, unsigned char)
+                0x0000000000018918                ssd1306::ssd1306(MicroBit*, MicroBitI2C*, MicroBitPin*, unsigned char)
+ .text._ZN7ssd130612display_lineEhhPKc
+                0x0000000000018968       0x68 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x0000000000018968                ssd1306::display_line(unsigned char, unsigned char, char const*)
+ .text._ZN7tsl256xC2EP8MicroBitP11MicroBitI2Chhhh
+                0x00000000000189d0       0x98 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+                0x00000000000189d0                tsl256x::tsl256x(MicroBit*, MicroBitI2C*, unsigned char, unsigned char, unsigned char, unsigned char)
+                0x00000000000189d0                tsl256x::tsl256x(MicroBit*, MicroBitI2C*, unsigned char, unsigned char, unsigned char, unsigned char)
+ .text._ZN7tsl256x13calculate_luxEtt
+                0x0000000000018a68      0x148 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+                0x0000000000018a68                tsl256x::calculate_lux(unsigned short, unsigned short)
+ .text._ZN7tsl256x11sensor_readEPtS0_Pm
+                0x0000000000018bb0       0x68 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+                0x0000000000018bb0                tsl256x::sensor_read(unsigned short*, unsigned short*, unsigned long*)
+ .text._ZN14MicroBitSerialD2Ev
+                0x0000000000018c18       0x18 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x0000000000018c18                MicroBitSerial::~MicroBitSerial()
+                0x0000000000018c18                MicroBitSerial::~MicroBitSerial()
+ .text._Z10check_dsmt13ManagedString
+                0x0000000000018c30       0x28 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x0000000000018c30                check_dsmt(ManagedString)
+ .text._Z7send_RF13ManagedString
+                0x0000000000018c58       0x34 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x0000000000018c58                send_RF(ManagedString)
+ .text._Z15send_encrypt_RF13ManagedString
+                0x0000000000018c8c       0x28 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x0000000000018c8c                send_encrypt_RF(ManagedString)
+ .text._Z9decode_RF13ManagedString
+                0x0000000000018cb4       0x34 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x0000000000018cb4                decode_RF(ManagedString)
+ .text._Z6onData13MicroBitEvent
+                0x0000000000018ce8       0x80 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x0000000000018ce8                onData(MicroBitEvent)
+ .text._Z4dataP6bme280P7tsl256x13ManagedString
+                0x0000000000018d68      0x3a8 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x0000000000018d68                data(bme280*, tsl256x*, ManagedString)
+ .text.startup._GLOBAL__sub_I_uBit
+                0x0000000000019110       0x88 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+ .text._ZN8MicroBitD2Ev
+                0x0000000000019198       0x58 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x0000000000019198                MicroBit::~MicroBit()
+                0x0000000000019198                MicroBit::~MicroBit()
+ .text.startup.main
+                0x00000000000191f0       0xd8 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x00000000000191f0                main
  .text._ZN8MicroBitC2Ev
                 0x00000000000192c8      0x16c ym/microbit/source/microbit.a(MicroBit.cpp.obj)
                 0x00000000000192c8                MicroBit::MicroBit()
@@ -4997,58 +4997,58 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtn.o
                 0x00000000000240e8                _getpid
  .text          0x00000000000240f8       0x10 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(kill.o)
                 0x00000000000240f8                _kill
- .text._ZN7tsl256x12probe_sensorEv
-                0x0000000000024108       0x70 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
-                0x0000000000024108                tsl256x::probe_sensor()
- .text._ZN11MicroBitPinD2Ev
-                0x0000000000024178        0x2 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x0000000000024178                MicroBitPin::~MicroBitPin()
-                0x0000000000024178                MicroBitPin::~MicroBitPin()
- .text._ZN14MicroBitSerialD0Ev
-                0x000000000002417a       0x12 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x000000000002417a                MicroBitSerial::~MicroBitSerial()
- .text._Z7encryptPci
-                0x000000000002418c       0x1e source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x000000000002418c                encrypt(char*, int)
- .text._Z7decryptPci
-                0x00000000000241aa       0x1e source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x00000000000241aa                decrypt(char*, int)
- .text._ZN11MicroBitPinD0Ev
-                0x00000000000241c8        0xc source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                0x00000000000241c8                MicroBitPin::~MicroBitPin()
- .text._ZN7ssd130623set_mem_addressing_modeEh
-                0x00000000000241d4       0x12 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x00000000000241d4                ssd1306::set_mem_addressing_mode(unsigned char)
- .text._ZN7ssd130618set_column_addressEhh
-                0x00000000000241e6       0x14 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x00000000000241e6                ssd1306::set_column_address(unsigned char, unsigned char)
- .text._ZN7ssd130616set_page_addressEhh
-                0x00000000000241fa       0x14 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x00000000000241fa                ssd1306::set_page_address(unsigned char, unsigned char)
- .text._ZN7ssd130614set_display_onEh
-                0x000000000002420e       0x16 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x000000000002420e                ssd1306::set_display_on(unsigned char)
- .text._ZN7ssd130613display_powerEh
-                0x0000000000024224       0x1a source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x0000000000024224                ssd1306::display_power(unsigned char)
- .text._ZN7ssd130618set_scan_directionEv
-                0x000000000002423e       0x20 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x000000000002423e                ssd1306::set_scan_direction()
- .text._ZN7ssd130613set_mux_ratioEh
-                0x000000000002425e       0x16 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x000000000002425e                ssd1306::set_mux_ratio(unsigned char)
- .text._ZN7ssd130618set_display_offsetEhh
-                0x0000000000024274       0x28 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x0000000000024274                ssd1306::set_display_offset(unsigned char, unsigned char)
- .text._ZN7ssd130610buffer_setEPhh
-                0x000000000002429c       0x14 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x000000000002429c                ssd1306::buffer_set(unsigned char*, unsigned char)
- .text._ZN7ssd130615buffer_set_tileEPhhhS0_
-                0x00000000000242b0       0x18 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                0x00000000000242b0                ssd1306::buffer_set_tile(unsigned char*, unsigned char, unsigned char, unsigned char*)
  .text._ZN6bme28022compensate_temperatureEi
-                0x00000000000242c8       0x30 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
-                0x00000000000242c8                bme280::compensate_temperature(int)
+                0x0000000000024108       0x30 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+                0x0000000000024108                bme280::compensate_temperature(int)
+ .text._ZN7ssd130623set_mem_addressing_modeEh
+                0x0000000000024138       0x12 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x0000000000024138                ssd1306::set_mem_addressing_mode(unsigned char)
+ .text._ZN7ssd130618set_column_addressEhh
+                0x000000000002414a       0x14 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x000000000002414a                ssd1306::set_column_address(unsigned char, unsigned char)
+ .text._ZN7ssd130616set_page_addressEhh
+                0x000000000002415e       0x14 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x000000000002415e                ssd1306::set_page_address(unsigned char, unsigned char)
+ .text._ZN7ssd130614set_display_onEh
+                0x0000000000024172       0x16 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x0000000000024172                ssd1306::set_display_on(unsigned char)
+ .text._ZN7ssd130613display_powerEh
+                0x0000000000024188       0x1a source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x0000000000024188                ssd1306::display_power(unsigned char)
+ .text._ZN7ssd130618set_scan_directionEv
+                0x00000000000241a2       0x20 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x00000000000241a2                ssd1306::set_scan_direction()
+ .text._ZN7ssd130613set_mux_ratioEh
+                0x00000000000241c2       0x16 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x00000000000241c2                ssd1306::set_mux_ratio(unsigned char)
+ .text._ZN7ssd130618set_display_offsetEhh
+                0x00000000000241d8       0x28 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x00000000000241d8                ssd1306::set_display_offset(unsigned char, unsigned char)
+ .text._ZN7ssd130610buffer_setEPhh
+                0x0000000000024200       0x14 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x0000000000024200                ssd1306::buffer_set(unsigned char*, unsigned char)
+ .text._ZN7ssd130615buffer_set_tileEPhhhS0_
+                0x0000000000024214       0x18 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x0000000000024214                ssd1306::buffer_set_tile(unsigned char*, unsigned char, unsigned char, unsigned char*)
+ .text._ZN7tsl256x12probe_sensorEv
+                0x000000000002422c       0x70 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+                0x000000000002422c                tsl256x::probe_sensor()
+ .text._ZN11MicroBitPinD2Ev
+                0x000000000002429c        0x2 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x000000000002429c                MicroBitPin::~MicroBitPin()
+                0x000000000002429c                MicroBitPin::~MicroBitPin()
+ .text._ZN14MicroBitSerialD0Ev
+                0x000000000002429e       0x12 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x000000000002429e                MicroBitSerial::~MicroBitSerial()
+ .text._Z7encryptPci
+                0x00000000000242b0       0x1e source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x00000000000242b0                encrypt(char*, int)
+ .text._Z7decryptPci
+                0x00000000000242ce       0x1e source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x00000000000242ce                decrypt(char*, int)
+ .text._ZN11MicroBitPinD0Ev
+                0x00000000000242ec        0xc source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x00000000000242ec                MicroBitPin::~MicroBitPin()
  .text._ZN4mbed19FunctionPointerArg1IvvE12membercallerI8MicroBitEEvPvPj
                 0x00000000000242f8       0x16 ym/microbit/source/microbit.a(MicroBit.cpp.obj)
                 0x00000000000242f8                void mbed::FunctionPointerArg1<void, void>::membercaller<MicroBit>(void*, unsigned int*)
@@ -6669,33 +6669,33 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtn.o
                 0x0000000000028740       0x25 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
  *fill*         0x0000000000028765        0x3 
  .rodata        0x0000000000028768       0x84 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
- .rodata._ZN7tsl256xC2EP8MicroBitP11MicroBitI2Chhhh.str1.1
-                0x00000000000287ec       0x27 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
- .rodata._ZN7tsl256x11sensor_readEPtS0_Pm.str1.1
-                0x0000000000028813        0x2 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
- .rodata._Z4dataP6bme280P7tsl256x13ManagedString.str1.1
-                0x0000000000028815       0x3d source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
- .rodata._GLOBAL__sub_I_uBit.str1.1
-                0x0000000000028852        0x5 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
- .rodata.main.str1.1
-                0x0000000000028857        0x6 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
- .rodata._ZN7ssd130612send_commandEhPhh.str1.1
-                0x000000000002885d        0xe source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .rodata._ZN7ssd130617set_display_clockEhh.str1.1
-                0x000000000002886b        0xc source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .rodata._ZN7ssd130610initializeEv.str1.1
-                0x0000000000028877       0x36 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .rodata._ZN7ssd130613update_screenEv.str1.1
-                0x00000000000288ad       0x12 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
  .rodata._ZN6bme28012probe_sensorEv.str1.1
-                0x00000000000288bf        0x2 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+                0x00000000000287ec        0x2 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
  .rodata._ZN6bme28020get_calibration_dataEv.str1.1
-                0x00000000000288c1        0x2 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+                0x00000000000287ee        0x2 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
  .rodata._ZN6bme280C2EP8MicroBitP11MicroBitI2Chhhhhhh.str1.1
-                0x00000000000288c3       0x12 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+                0x00000000000287f0       0x12 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
                                          0x27 (size before relaxing)
  .rodata._ZN6bme28011sensor_readEPmPlPt.str1.1
-                0x00000000000288d5        0x2 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+                0x0000000000028802        0x2 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .rodata._ZN7ssd130612send_commandEhPhh.str1.1
+                0x0000000000028804        0xe source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .rodata._ZN7ssd130617set_display_clockEhh.str1.1
+                0x0000000000028812        0xc source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .rodata._ZN7ssd130610initializeEv.str1.1
+                0x000000000002881e       0x36 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .rodata._ZN7ssd130613update_screenEv.str1.1
+                0x0000000000028854       0x12 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .rodata._ZN7tsl256xC2EP8MicroBitP11MicroBitI2Chhhh.str1.1
+                0x0000000000028866       0x27 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+ .rodata._ZN7tsl256x11sensor_readEPtS0_Pm.str1.1
+                0x000000000002888d        0x2 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+ .rodata._Z4dataP6bme280P7tsl256x13ManagedString.str1.1
+                0x000000000002888f       0x3d source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+ .rodata._GLOBAL__sub_I_uBit.str1.1
+                0x00000000000288cc        0x5 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+ .rodata.main.str1.1
+                0x00000000000288d1        0x6 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
  .rodata._ZN8MicroBit4initEv.str1.1
                 0x00000000000288d7       0x1b ym/microbit/source/microbit.a(MicroBit.cpp.obj)
  .rodata._ZL18microbitDisplayMap
@@ -7153,13 +7153,13 @@ LOAD linker stubs
  .ARM.attributes
                 0x000000000000004a       0x1b /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
  .ARM.attributes
-                0x0000000000000065       0x2c source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+                0x0000000000000065       0x2c source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
  .ARM.attributes
-                0x0000000000000091       0x2c source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x0000000000000091       0x2c source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
  .ARM.attributes
-                0x00000000000000bd       0x2c source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x00000000000000bd       0x2c source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
  .ARM.attributes
-                0x00000000000000e9       0x2c source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+                0x00000000000000e9       0x2c source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
  .ARM.attributes
                 0x0000000000000115       0x2c ym/microbit/source/microbit.a(MicroBit.cpp.obj)
  .ARM.attributes
@@ -7450,10 +7450,10 @@ LOAD linker stubs
 .comment        0x0000000000000000       0x33
  .comment       0x0000000000000000       0x33 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
                                          0x34 (size before relaxing)
+ .comment       0x0000000000000033       0x34 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .comment       0x0000000000000033       0x34 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
  .comment       0x0000000000000033       0x34 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
  .comment       0x0000000000000033       0x34 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
- .comment       0x0000000000000033       0x34 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .comment       0x0000000000000033       0x34 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
  .comment       0x0000000000000033       0x34 ym/microbit/source/microbit.a(MicroBit.cpp.obj)
  .comment       0x0000000000000033       0x34 ym/microbit-dal/source/microbit-dal.a(MicroBitDevice.cpp.obj)
  .comment       0x0000000000000033       0x34 ym/microbit-dal/source/microbit-dal.a(MicroBitFiber.cpp.obj)
@@ -7585,160 +7585,160 @@ LOAD linker stubs
  .comment       0x0000000000000033       0x34 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(kill.o)
  .comment       0x0000000000000033       0x34 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtend.o
 
-.debug_line     0x0000000000000000    0x42a06
+.debug_line     0x0000000000000000    0x42a05
  .debug_line    0x0000000000000000       0x8c /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
- .debug_line    0x000000000000008c      0xd85 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
- .debug_line    0x0000000000000e11     0x14e5 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
- .debug_line    0x00000000000022f6     0x11e0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .debug_line    0x00000000000034d6      0xfdc source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
- .debug_line    0x00000000000044b2     0x1097 ym/microbit/source/microbit.a(MicroBit.cpp.obj)
- .debug_line    0x0000000000005549      0xf6d ym/microbit-dal/source/microbit-dal.a(MicroBitDevice.cpp.obj)
- .debug_line    0x00000000000064b6     0x14d3 ym/microbit-dal/source/microbit-dal.a(MicroBitFiber.cpp.obj)
- .debug_line    0x0000000000007989      0x3dc ym/microbit-dal/source/microbit-dal.a(MicroBitFont.cpp.obj)
- .debug_line    0x0000000000007d65      0x96c ym/microbit-dal/source/microbit-dal.a(MicroBitHeapAllocator.cpp.obj)
- .debug_line    0x00000000000086d1      0x541 ym/microbit-dal/source/microbit-dal.a(MicroBitListener.cpp.obj)
- .debug_line    0x0000000000008c12      0x6e9 ym/microbit-dal/source/microbit-dal.a(MicroBitSystemTimer.cpp.obj)
- .debug_line    0x00000000000092fb      0xc4e ym/microbit-dal/source/microbit-dal.a(ManagedString.cpp.obj)
- .debug_line    0x0000000000009f49      0x4c8 ym/microbit-dal/source/microbit-dal.a(MicroBitEvent.cpp.obj)
- .debug_line    0x000000000000a411     0x1985 ym/microbit-dal/source/microbit-dal.a(MicroBitImage.cpp.obj)
- .debug_line    0x000000000000bd96      0x79d ym/microbit-dal/source/microbit-dal.a(PacketBuffer.cpp.obj)
- .debug_line    0x000000000000c533      0x589 ym/microbit-dal/source/microbit-dal.a(RefCounted.cpp.obj)
- .debug_line    0x000000000000cabc     0x1188 ym/microbit-dal/source/microbit-dal.a(MicroBitAccelerometer.cpp.obj)
- .debug_line    0x000000000000dc44      0x885 ym/microbit-dal/source/microbit-dal.a(MicroBitButton.cpp.obj)
- .debug_line    0x000000000000e4c9     0x118a ym/microbit-dal/source/microbit-dal.a(MicroBitCompass.cpp.obj)
- .debug_line    0x000000000000f653     0x11f1 ym/microbit-dal/source/microbit-dal.a(MicroBitCompassCalibrator.cpp.obj)
- .debug_line    0x0000000000010844     0x1f19 ym/microbit-dal/source/microbit-dal.a(MicroBitDisplay.cpp.obj)
- .debug_line    0x000000000001275d      0x6ea ym/microbit-dal/source/microbit-dal.a(MicroBitI2C.cpp.obj)
- .debug_line    0x0000000000012e47      0x469 ym/microbit-dal/source/microbit-dal.a(MicroBitIO.cpp.obj)
- .debug_line    0x00000000000132b0      0xce7 ym/microbit-dal/source/microbit-dal.a(MicroBitMessageBus.cpp.obj)
- .debug_line    0x0000000000013f97      0xa51 ym/microbit-dal/source/microbit-dal.a(MicroBitMultiButton.cpp.obj)
- .debug_line    0x00000000000149e8     0x10fd ym/microbit-dal/source/microbit-dal.a(MicroBitPin.cpp.obj)
- .debug_line    0x0000000000015ae5     0x1211 ym/microbit-dal/source/microbit-dal.a(MicroBitRadio.cpp.obj)
- .debug_line    0x0000000000016cf6      0x779 ym/microbit-dal/source/microbit-dal.a(MicroBitRadioDatagram.cpp.obj)
- .debug_line    0x000000000001746f      0x7c2 ym/microbit-dal/source/microbit-dal.a(MicroBitRadioEvent.cpp.obj)
- .debug_line    0x0000000000017c31     0x192b ym/microbit-dal/source/microbit-dal.a(MicroBitSerial.cpp.obj)
- .debug_line    0x000000000001955c      0xcf5 ym/microbit-dal/source/microbit-dal.a(MicroBitStorage.cpp.obj)
- .debug_line    0x000000000001a251      0xa1d ym/microbit-dal/source/microbit-dal.a(MicroBitThermometer.cpp.obj)
- .debug_line    0x000000000001ac6e      0x8ce ym/microbit-dal/source/microbit-dal.a(MicroBitFlash.cpp.obj)
- .debug_line    0x000000000001b53c      0xb12 ym/microbit-dal/source/microbit-dal.a(FXOS8700.cpp.obj)
- .debug_line    0x000000000001c04e      0x971 ym/microbit-dal/source/microbit-dal.a(MMA8653.cpp.obj)
- .debug_line    0x000000000001c9bf      0x974 ym/microbit-dal/source/microbit-dal.a(MAG3110.cpp.obj)
- .debug_line    0x000000000001d333      0x96f ym/microbit-dal/source/microbit-dal.a(LSM303Accelerometer.cpp.obj)
- .debug_line    0x000000000001dca2      0x917 ym/microbit-dal/source/microbit-dal.a(LSM303Magnetometer.cpp.obj)
- .debug_line    0x000000000001e5b9     0x267e ym/microbit-dal/source/microbit-dal.a(MicroBitBLEManager.cpp.obj)
- .debug_line    0x0000000000020c37      0xd58 ym/microbit-dal/source/microbit-dal.a(MicroBitDFUService.cpp.obj)
- .debug_line    0x000000000002198f     0x10ea ym/microbit-dal/source/microbit-dal.a(MicroBitEventService.cpp.obj)
- .debug_line    0x0000000000022a79      0x14c ym/microbit-dal/source/microbit-dal.a(CortexContextSwitch.s.obj)
- .debug_line    0x0000000000022bc5      0x3f6 ym/microbit-dal/source/microbit-dal.a(MemberFunctionCallback.cpp.obj)
- .debug_line    0x0000000000022fbb      0x3f9 ym/microbit-dal/source/microbit-dal.a(MicroBitCompat.cpp.obj)
- .debug_line    0x00000000000233b4      0x3c7 ym/microbit-dal/source/microbit-dal.a(MicroBitUtil.cpp.obj)
- .debug_line    0x000000000002377b      0x44e ym/microbit-dal/source/microbit-dal.a(CoordinateSystem.cpp.obj)
- .debug_line    0x0000000000023bc9      0x6ff ym/microbit-dal/source/microbit-dal.a(DynamicPwm.cpp.obj)
- .debug_line    0x00000000000242c8      0x872 ym/ble/source/ble.a(BLE.cpp.obj)
- .debug_line    0x0000000000024b3a     0x1041 ym/ble-nrf51822/source/ble-nrf51822.a(btle.cpp.obj)
- .debug_line    0x0000000000025b7b     0x1997 ym/ble-nrf51822/source/ble-nrf51822.a(nRF5xGattServer.cpp.obj)
- .debug_line    0x0000000000027512     0x25c4 ym/ble-nrf51822/source/ble-nrf51822.a(nRF5xn.cpp.obj)
- .debug_line    0x0000000000029ad6     0x19ab ym/ble-nrf51822/source/ble-nrf51822.a(nRF5xGap.cpp.obj)
- .debug_line    0x000000000002b481      0x2cc ym/ble-nrf51822/source/ble-nrf51822.a(btle_gap.cpp.obj)
- .debug_line    0x000000000002b74d      0x8e9 ym/ble-nrf51822/source/ble-nrf51822.a(custom_helper.cpp.obj)
- .debug_line    0x000000000002c036      0xd15 ym/ble-nrf51822/source/ble-nrf51822.a(btle_security.cpp.obj)
- .debug_line    0x000000000002cd4b      0x4dc ym/ble/source/ble.a(GapScanningParams.cpp.obj)
- .debug_line    0x000000000002d227     0x20e0 ym/nrf51-sdk/source/nrf51-sdk.a(device_manager_peripheral.c.obj)
- .debug_line    0x000000000002f307      0xf62 ym/nrf51-sdk/source/nrf51-sdk.a(id_manager.c.obj)
- .debug_line    0x0000000000030269     0x19ff ym/nrf51-sdk/source/nrf51-sdk.a(pstorage.c.obj)
- .debug_line    0x0000000000031c68      0x305 ym/nrf51-sdk/source/nrf51-sdk.a(ble_radio_notification.c.obj)
- .debug_line    0x0000000000031f6d      0x806 ym/nrf51-sdk/source/nrf51-sdk.a(dfu_app_handler.c.obj)
- .debug_line    0x0000000000032773      0x674 ym/nrf51-sdk/source/nrf51-sdk.a(softdevice_handler.c.obj)
- .debug_line    0x0000000000032de7      0xb3f ym/nrf51-sdk/source/nrf51-sdk.a(ble_dfu.c.obj)
- .debug_line    0x0000000000033926      0x119 ym/nrf51-sdk/source/nrf51-sdk.a(bootloader_util.c.obj)
- .debug_line    0x0000000000033a3f      0x60c ym/mbed-classic/existing/mbed-classic.a(I2C.cpp.obj)
- .debug_line    0x000000000003404b      0x677 ym/mbed-classic/existing/mbed-classic.a(InterruptIn.cpp.obj)
- .debug_line    0x00000000000346c2      0x60a ym/mbed-classic/existing/mbed-classic.a(RawSerial.cpp.obj)
- .debug_line    0x0000000000034ccc      0x735 ym/mbed-classic/existing/mbed-classic.a(SerialBase.cpp.obj)
- .debug_line    0x0000000000035401      0x2bb ym/mbed-classic/existing/mbed-classic.a(Ticker.cpp.obj)
- .debug_line    0x00000000000356bc      0x1fc ym/mbed-classic/existing/mbed-classic.a(Timeout.cpp.obj)
- .debug_line    0x00000000000358b8      0x46c ym/mbed-classic/existing/mbed-classic.a(Timer.cpp.obj)
- .debug_line    0x0000000000035d24      0x2ae ym/mbed-classic/existing/mbed-classic.a(TimerEvent.cpp.obj)
- .debug_line    0x0000000000035fd2       0xc5 ym/mbed-classic/existing/mbed-classic.a(error.c.obj)
- .debug_line    0x0000000000036097      0x3e6 ym/mbed-classic/existing/mbed-classic.a(gpio.c.obj)
- .debug_line    0x000000000003647d      0xd6c ym/mbed-classic/existing/mbed-classic.a(retarget.cpp.obj)
- .debug_line    0x00000000000371e9      0x40b ym/mbed-classic/existing/mbed-classic.a(ticker_api.c.obj)
- .debug_line    0x00000000000375f4      0x159 ym/mbed-classic/existing/mbed-classic.a(us_ticker_api.c.obj)
- .debug_line    0x000000000003774d      0x1b0 ym/mbed-classic/existing/mbed-classic.a(wait_api.c.obj)
- .debug_line    0x00000000000378fd       0xff ym/mbed-classic/existing/mbed-classic.a(startup_NRF51822.S.obj)
- .debug_line    0x00000000000379fc      0x329 ym/mbed-classic/existing/mbed-classic.a(gpio_api.c.obj)
- .debug_line    0x0000000000037d25      0x5fc ym/mbed-classic/existing/mbed-classic.a(gpio_irq_api.c.obj)
- .debug_line    0x0000000000038321      0x9eb ym/mbed-classic/existing/mbed-classic.a(i2c_api.c.obj)
- .debug_line    0x0000000000038d0c      0x257 ym/mbed-classic/existing/mbed-classic.a(pinmap.c.obj)
- .debug_line    0x0000000000038f63      0x439 ym/mbed-classic/existing/mbed-classic.a(port_api.c.obj)
- .debug_line    0x000000000003939c      0xad9 ym/mbed-classic/existing/mbed-classic.a(pwmout_api.c.obj)
- .debug_line    0x0000000000039e75      0x8f4 ym/mbed-classic/existing/mbed-classic.a(serial_api.c.obj)
- .debug_line    0x000000000003a769      0x62a ym/mbed-classic/existing/mbed-classic.a(twi_master.c.obj)
- .debug_line    0x000000000003ad93      0x661 ym/mbed-classic/existing/mbed-classic.a(us_ticker.c.obj)
- .debug_line    0x000000000003b3f4      0x54d ym/mbed-classic/existing/mbed-classic.a(board.c.obj)
- .debug_line    0x000000000003b941      0x20c ym/mbed-classic/existing/mbed-classic.a(system_nrf51.c.obj)
- .debug_line    0x000000000003bb4d       0x4f /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(errno.o)
- .debug_line    0x000000000003bb9c      0x182 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++_nano.a(atexit_arm.o)
- .debug_line    0x000000000003bd1e      0x277 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++_nano.a(del_op.o)
- .debug_line    0x000000000003bf95      0x2a8 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++_nano.a(new_op.o)
- .debug_line    0x000000000003c23d      0x358 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++_nano.a(new_handler.o)
- .debug_line    0x000000000003c595       0x68 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uqi.o)
- .debug_line    0x000000000003c5fd       0x69 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uhi.o)
- .debug_line    0x000000000003c666       0x6c /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
- .debug_line    0x000000000003c6d2       0x73 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
- .debug_line    0x000000000003c745       0x60 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
- .debug_line    0x000000000003c7a5       0x75 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
- .debug_line    0x000000000003c81a       0x6b /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_uldivmod.o)
- .debug_line    0x000000000003c885      0x1c2 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivmoddi4.o)
- .debug_line    0x000000000003ca47      0x625 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
- .debug_line    0x000000000003d06c      0x51b /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
- .debug_line    0x000000000003d587      0x10c /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
- .debug_line    0x000000000003d693      0x160 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
- .debug_line    0x000000000003d7f3      0x157 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
- .debug_line    0x000000000003d94a      0x556 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
- .debug_line    0x000000000003dea0      0x6ce /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(subsf3.o)
- .debug_line    0x000000000003e56e      0x113 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
- .debug_line    0x000000000003e681      0x22c /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
- .debug_line    0x000000000003e8ad       0x74 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
- .debug_line    0x000000000003e921       0x6a /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_clzdi2.o)
- .debug_line    0x000000000003e98b      0x171 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-wf_sqrt.o)
- .debug_line    0x000000000003eafc      0x2c7 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-ef_sqrt.o)
- .debug_line    0x000000000003edc3       0x97 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_lib_ver.o)
- .debug_line    0x000000000003ee5a      0x109 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-abort.o)
- .debug_line    0x000000000003ef63       0xc3 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-atexit.o)
- .debug_line    0x000000000003f026       0xf2 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-cxa_atexit.o)
- .debug_line    0x000000000003f118      0x10f /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-errno.o)
- .debug_line    0x000000000003f227      0x16b /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-exit.o)
- .debug_line    0x000000000003f392      0x619 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
- .debug_line    0x000000000003f9ab       0xef /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-fini.o)
- .debug_line    0x000000000003fa9a       0xe4 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
- .debug_line    0x000000000003fb7e      0x127 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-init.o)
- .debug_line    0x000000000003fca5      0x1b1 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memchr-stub.o)
- .debug_line    0x000000000003fe56      0x167 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memcmp.o)
- .debug_line    0x000000000003ffbd      0x1b5 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
- .debug_line    0x0000000000040172      0x1e1 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memmove.o)
- .debug_line    0x0000000000040353      0x1ce /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memset.o)
- .debug_line    0x0000000000040521       0x9f /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-on_exit_args.o)
- .debug_line    0x00000000000405c0      0x5ec /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-signal.o)
- .debug_line    0x0000000000040bac      0x1aa /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-signalr.o)
- .debug_line    0x0000000000040d56      0x366 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-snprintf.o)
- .debug_line    0x00000000000410bc       0xb0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strcmp.o)
- .debug_line    0x000000000004116c      0x172 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strlen-stub.o)
- .debug_line    0x00000000000412de      0x177 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strncpy.o)
- .debug_line    0x0000000000041455      0x201 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-__atexit.o)
- .debug_line    0x0000000000041656      0x219 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-__call_atexit.o)
- .debug_line    0x000000000004186f      0x8be /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
- .debug_line    0x000000000004212d      0x718 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
- .debug_line    0x0000000000042845       0xc5 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(unordsf2.o)
- .debug_line    0x000000000004290a       0x7f /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(getpid.o)
- .debug_line    0x0000000000042989       0x7d /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(kill.o)
+ .debug_line    0x000000000000008c      0xfdc source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .debug_line    0x0000000000001068     0x11e0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .debug_line    0x0000000000002248      0xd85 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+ .debug_line    0x0000000000002fcd     0x14e4 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+ .debug_line    0x00000000000044b1     0x1097 ym/microbit/source/microbit.a(MicroBit.cpp.obj)
+ .debug_line    0x0000000000005548      0xf6d ym/microbit-dal/source/microbit-dal.a(MicroBitDevice.cpp.obj)
+ .debug_line    0x00000000000064b5     0x14d3 ym/microbit-dal/source/microbit-dal.a(MicroBitFiber.cpp.obj)
+ .debug_line    0x0000000000007988      0x3dc ym/microbit-dal/source/microbit-dal.a(MicroBitFont.cpp.obj)
+ .debug_line    0x0000000000007d64      0x96c ym/microbit-dal/source/microbit-dal.a(MicroBitHeapAllocator.cpp.obj)
+ .debug_line    0x00000000000086d0      0x541 ym/microbit-dal/source/microbit-dal.a(MicroBitListener.cpp.obj)
+ .debug_line    0x0000000000008c11      0x6e9 ym/microbit-dal/source/microbit-dal.a(MicroBitSystemTimer.cpp.obj)
+ .debug_line    0x00000000000092fa      0xc4e ym/microbit-dal/source/microbit-dal.a(ManagedString.cpp.obj)
+ .debug_line    0x0000000000009f48      0x4c8 ym/microbit-dal/source/microbit-dal.a(MicroBitEvent.cpp.obj)
+ .debug_line    0x000000000000a410     0x1985 ym/microbit-dal/source/microbit-dal.a(MicroBitImage.cpp.obj)
+ .debug_line    0x000000000000bd95      0x79d ym/microbit-dal/source/microbit-dal.a(PacketBuffer.cpp.obj)
+ .debug_line    0x000000000000c532      0x589 ym/microbit-dal/source/microbit-dal.a(RefCounted.cpp.obj)
+ .debug_line    0x000000000000cabb     0x1188 ym/microbit-dal/source/microbit-dal.a(MicroBitAccelerometer.cpp.obj)
+ .debug_line    0x000000000000dc43      0x885 ym/microbit-dal/source/microbit-dal.a(MicroBitButton.cpp.obj)
+ .debug_line    0x000000000000e4c8     0x118a ym/microbit-dal/source/microbit-dal.a(MicroBitCompass.cpp.obj)
+ .debug_line    0x000000000000f652     0x11f1 ym/microbit-dal/source/microbit-dal.a(MicroBitCompassCalibrator.cpp.obj)
+ .debug_line    0x0000000000010843     0x1f19 ym/microbit-dal/source/microbit-dal.a(MicroBitDisplay.cpp.obj)
+ .debug_line    0x000000000001275c      0x6ea ym/microbit-dal/source/microbit-dal.a(MicroBitI2C.cpp.obj)
+ .debug_line    0x0000000000012e46      0x469 ym/microbit-dal/source/microbit-dal.a(MicroBitIO.cpp.obj)
+ .debug_line    0x00000000000132af      0xce7 ym/microbit-dal/source/microbit-dal.a(MicroBitMessageBus.cpp.obj)
+ .debug_line    0x0000000000013f96      0xa51 ym/microbit-dal/source/microbit-dal.a(MicroBitMultiButton.cpp.obj)
+ .debug_line    0x00000000000149e7     0x10fd ym/microbit-dal/source/microbit-dal.a(MicroBitPin.cpp.obj)
+ .debug_line    0x0000000000015ae4     0x1211 ym/microbit-dal/source/microbit-dal.a(MicroBitRadio.cpp.obj)
+ .debug_line    0x0000000000016cf5      0x779 ym/microbit-dal/source/microbit-dal.a(MicroBitRadioDatagram.cpp.obj)
+ .debug_line    0x000000000001746e      0x7c2 ym/microbit-dal/source/microbit-dal.a(MicroBitRadioEvent.cpp.obj)
+ .debug_line    0x0000000000017c30     0x192b ym/microbit-dal/source/microbit-dal.a(MicroBitSerial.cpp.obj)
+ .debug_line    0x000000000001955b      0xcf5 ym/microbit-dal/source/microbit-dal.a(MicroBitStorage.cpp.obj)
+ .debug_line    0x000000000001a250      0xa1d ym/microbit-dal/source/microbit-dal.a(MicroBitThermometer.cpp.obj)
+ .debug_line    0x000000000001ac6d      0x8ce ym/microbit-dal/source/microbit-dal.a(MicroBitFlash.cpp.obj)
+ .debug_line    0x000000000001b53b      0xb12 ym/microbit-dal/source/microbit-dal.a(FXOS8700.cpp.obj)
+ .debug_line    0x000000000001c04d      0x971 ym/microbit-dal/source/microbit-dal.a(MMA8653.cpp.obj)
+ .debug_line    0x000000000001c9be      0x974 ym/microbit-dal/source/microbit-dal.a(MAG3110.cpp.obj)
+ .debug_line    0x000000000001d332      0x96f ym/microbit-dal/source/microbit-dal.a(LSM303Accelerometer.cpp.obj)
+ .debug_line    0x000000000001dca1      0x917 ym/microbit-dal/source/microbit-dal.a(LSM303Magnetometer.cpp.obj)
+ .debug_line    0x000000000001e5b8     0x267e ym/microbit-dal/source/microbit-dal.a(MicroBitBLEManager.cpp.obj)
+ .debug_line    0x0000000000020c36      0xd58 ym/microbit-dal/source/microbit-dal.a(MicroBitDFUService.cpp.obj)
+ .debug_line    0x000000000002198e     0x10ea ym/microbit-dal/source/microbit-dal.a(MicroBitEventService.cpp.obj)
+ .debug_line    0x0000000000022a78      0x14c ym/microbit-dal/source/microbit-dal.a(CortexContextSwitch.s.obj)
+ .debug_line    0x0000000000022bc4      0x3f6 ym/microbit-dal/source/microbit-dal.a(MemberFunctionCallback.cpp.obj)
+ .debug_line    0x0000000000022fba      0x3f9 ym/microbit-dal/source/microbit-dal.a(MicroBitCompat.cpp.obj)
+ .debug_line    0x00000000000233b3      0x3c7 ym/microbit-dal/source/microbit-dal.a(MicroBitUtil.cpp.obj)
+ .debug_line    0x000000000002377a      0x44e ym/microbit-dal/source/microbit-dal.a(CoordinateSystem.cpp.obj)
+ .debug_line    0x0000000000023bc8      0x6ff ym/microbit-dal/source/microbit-dal.a(DynamicPwm.cpp.obj)
+ .debug_line    0x00000000000242c7      0x872 ym/ble/source/ble.a(BLE.cpp.obj)
+ .debug_line    0x0000000000024b39     0x1041 ym/ble-nrf51822/source/ble-nrf51822.a(btle.cpp.obj)
+ .debug_line    0x0000000000025b7a     0x1997 ym/ble-nrf51822/source/ble-nrf51822.a(nRF5xGattServer.cpp.obj)
+ .debug_line    0x0000000000027511     0x25c4 ym/ble-nrf51822/source/ble-nrf51822.a(nRF5xn.cpp.obj)
+ .debug_line    0x0000000000029ad5     0x19ab ym/ble-nrf51822/source/ble-nrf51822.a(nRF5xGap.cpp.obj)
+ .debug_line    0x000000000002b480      0x2cc ym/ble-nrf51822/source/ble-nrf51822.a(btle_gap.cpp.obj)
+ .debug_line    0x000000000002b74c      0x8e9 ym/ble-nrf51822/source/ble-nrf51822.a(custom_helper.cpp.obj)
+ .debug_line    0x000000000002c035      0xd15 ym/ble-nrf51822/source/ble-nrf51822.a(btle_security.cpp.obj)
+ .debug_line    0x000000000002cd4a      0x4dc ym/ble/source/ble.a(GapScanningParams.cpp.obj)
+ .debug_line    0x000000000002d226     0x20e0 ym/nrf51-sdk/source/nrf51-sdk.a(device_manager_peripheral.c.obj)
+ .debug_line    0x000000000002f306      0xf62 ym/nrf51-sdk/source/nrf51-sdk.a(id_manager.c.obj)
+ .debug_line    0x0000000000030268     0x19ff ym/nrf51-sdk/source/nrf51-sdk.a(pstorage.c.obj)
+ .debug_line    0x0000000000031c67      0x305 ym/nrf51-sdk/source/nrf51-sdk.a(ble_radio_notification.c.obj)
+ .debug_line    0x0000000000031f6c      0x806 ym/nrf51-sdk/source/nrf51-sdk.a(dfu_app_handler.c.obj)
+ .debug_line    0x0000000000032772      0x674 ym/nrf51-sdk/source/nrf51-sdk.a(softdevice_handler.c.obj)
+ .debug_line    0x0000000000032de6      0xb3f ym/nrf51-sdk/source/nrf51-sdk.a(ble_dfu.c.obj)
+ .debug_line    0x0000000000033925      0x119 ym/nrf51-sdk/source/nrf51-sdk.a(bootloader_util.c.obj)
+ .debug_line    0x0000000000033a3e      0x60c ym/mbed-classic/existing/mbed-classic.a(I2C.cpp.obj)
+ .debug_line    0x000000000003404a      0x677 ym/mbed-classic/existing/mbed-classic.a(InterruptIn.cpp.obj)
+ .debug_line    0x00000000000346c1      0x60a ym/mbed-classic/existing/mbed-classic.a(RawSerial.cpp.obj)
+ .debug_line    0x0000000000034ccb      0x735 ym/mbed-classic/existing/mbed-classic.a(SerialBase.cpp.obj)
+ .debug_line    0x0000000000035400      0x2bb ym/mbed-classic/existing/mbed-classic.a(Ticker.cpp.obj)
+ .debug_line    0x00000000000356bb      0x1fc ym/mbed-classic/existing/mbed-classic.a(Timeout.cpp.obj)
+ .debug_line    0x00000000000358b7      0x46c ym/mbed-classic/existing/mbed-classic.a(Timer.cpp.obj)
+ .debug_line    0x0000000000035d23      0x2ae ym/mbed-classic/existing/mbed-classic.a(TimerEvent.cpp.obj)
+ .debug_line    0x0000000000035fd1       0xc5 ym/mbed-classic/existing/mbed-classic.a(error.c.obj)
+ .debug_line    0x0000000000036096      0x3e6 ym/mbed-classic/existing/mbed-classic.a(gpio.c.obj)
+ .debug_line    0x000000000003647c      0xd6c ym/mbed-classic/existing/mbed-classic.a(retarget.cpp.obj)
+ .debug_line    0x00000000000371e8      0x40b ym/mbed-classic/existing/mbed-classic.a(ticker_api.c.obj)
+ .debug_line    0x00000000000375f3      0x159 ym/mbed-classic/existing/mbed-classic.a(us_ticker_api.c.obj)
+ .debug_line    0x000000000003774c      0x1b0 ym/mbed-classic/existing/mbed-classic.a(wait_api.c.obj)
+ .debug_line    0x00000000000378fc       0xff ym/mbed-classic/existing/mbed-classic.a(startup_NRF51822.S.obj)
+ .debug_line    0x00000000000379fb      0x329 ym/mbed-classic/existing/mbed-classic.a(gpio_api.c.obj)
+ .debug_line    0x0000000000037d24      0x5fc ym/mbed-classic/existing/mbed-classic.a(gpio_irq_api.c.obj)
+ .debug_line    0x0000000000038320      0x9eb ym/mbed-classic/existing/mbed-classic.a(i2c_api.c.obj)
+ .debug_line    0x0000000000038d0b      0x257 ym/mbed-classic/existing/mbed-classic.a(pinmap.c.obj)
+ .debug_line    0x0000000000038f62      0x439 ym/mbed-classic/existing/mbed-classic.a(port_api.c.obj)
+ .debug_line    0x000000000003939b      0xad9 ym/mbed-classic/existing/mbed-classic.a(pwmout_api.c.obj)
+ .debug_line    0x0000000000039e74      0x8f4 ym/mbed-classic/existing/mbed-classic.a(serial_api.c.obj)
+ .debug_line    0x000000000003a768      0x62a ym/mbed-classic/existing/mbed-classic.a(twi_master.c.obj)
+ .debug_line    0x000000000003ad92      0x661 ym/mbed-classic/existing/mbed-classic.a(us_ticker.c.obj)
+ .debug_line    0x000000000003b3f3      0x54d ym/mbed-classic/existing/mbed-classic.a(board.c.obj)
+ .debug_line    0x000000000003b940      0x20c ym/mbed-classic/existing/mbed-classic.a(system_nrf51.c.obj)
+ .debug_line    0x000000000003bb4c       0x4f /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(errno.o)
+ .debug_line    0x000000000003bb9b      0x182 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++_nano.a(atexit_arm.o)
+ .debug_line    0x000000000003bd1d      0x277 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++_nano.a(del_op.o)
+ .debug_line    0x000000000003bf94      0x2a8 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++_nano.a(new_op.o)
+ .debug_line    0x000000000003c23c      0x358 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++_nano.a(new_handler.o)
+ .debug_line    0x000000000003c594       0x68 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uqi.o)
+ .debug_line    0x000000000003c5fc       0x69 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uhi.o)
+ .debug_line    0x000000000003c665       0x6c /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_line    0x000000000003c6d1       0x73 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .debug_line    0x000000000003c744       0x60 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x000000000003c7a4       0x75 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
+ .debug_line    0x000000000003c819       0x6b /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .debug_line    0x000000000003c884      0x1c2 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivmoddi4.o)
+ .debug_line    0x000000000003ca46      0x625 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+ .debug_line    0x000000000003d06b      0x51b /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .debug_line    0x000000000003d586      0x10c /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+ .debug_line    0x000000000003d692      0x160 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+ .debug_line    0x000000000003d7f2      0x157 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+ .debug_line    0x000000000003d949      0x556 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .debug_line    0x000000000003de9f      0x6ce /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(subsf3.o)
+ .debug_line    0x000000000003e56d      0x113 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+ .debug_line    0x000000000003e680      0x22c /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+ .debug_line    0x000000000003e8ac       0x74 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+ .debug_line    0x000000000003e920       0x6a /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_clzdi2.o)
+ .debug_line    0x000000000003e98a      0x171 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-wf_sqrt.o)
+ .debug_line    0x000000000003eafb      0x2c7 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-ef_sqrt.o)
+ .debug_line    0x000000000003edc2       0x97 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_lib_ver.o)
+ .debug_line    0x000000000003ee59      0x109 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-abort.o)
+ .debug_line    0x000000000003ef62       0xc3 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-atexit.o)
+ .debug_line    0x000000000003f025       0xf2 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-cxa_atexit.o)
+ .debug_line    0x000000000003f117      0x10f /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-errno.o)
+ .debug_line    0x000000000003f226      0x16b /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-exit.o)
+ .debug_line    0x000000000003f391      0x619 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
+ .debug_line    0x000000000003f9aa       0xef /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-fini.o)
+ .debug_line    0x000000000003fa99       0xe4 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
+ .debug_line    0x000000000003fb7d      0x127 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-init.o)
+ .debug_line    0x000000000003fca4      0x1b1 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memchr-stub.o)
+ .debug_line    0x000000000003fe55      0x167 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memcmp.o)
+ .debug_line    0x000000000003ffbc      0x1b5 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
+ .debug_line    0x0000000000040171      0x1e1 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memmove.o)
+ .debug_line    0x0000000000040352      0x1ce /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memset.o)
+ .debug_line    0x0000000000040520       0x9f /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-on_exit_args.o)
+ .debug_line    0x00000000000405bf      0x5ec /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-signal.o)
+ .debug_line    0x0000000000040bab      0x1aa /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-signalr.o)
+ .debug_line    0x0000000000040d55      0x366 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-snprintf.o)
+ .debug_line    0x00000000000410bb       0xb0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strcmp.o)
+ .debug_line    0x000000000004116b      0x172 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strlen-stub.o)
+ .debug_line    0x00000000000412dd      0x177 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strncpy.o)
+ .debug_line    0x0000000000041454      0x201 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-__atexit.o)
+ .debug_line    0x0000000000041655      0x219 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-__call_atexit.o)
+ .debug_line    0x000000000004186e      0x8be /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+ .debug_line    0x000000000004212c      0x718 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_line    0x0000000000042844       0xc5 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(unordsf2.o)
+ .debug_line    0x0000000000042909       0x7f /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(getpid.o)
+ .debug_line    0x0000000000042988       0x7d /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(kill.o)
 
 .debug_info     0x0000000000000000   0x1dd90f
  .debug_info    0x0000000000000000       0x26 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
- .debug_info    0x0000000000000026    0x10a9e source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
- .debug_info    0x0000000000010ac4    0x14f6d source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
- .debug_info    0x0000000000025a31    0x118f5 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .debug_info    0x0000000000037326    0x10fea source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .debug_info    0x0000000000000026    0x10fea source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .debug_info    0x0000000000011010    0x118f5 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .debug_info    0x0000000000022905    0x10a9e source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+ .debug_info    0x00000000000333a3    0x14f6d source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
  .debug_info    0x0000000000048310    0x135cf ym/microbit/source/microbit.a(MicroBit.cpp.obj)
  .debug_info    0x000000000005b8df     0x416d ym/microbit-dal/source/microbit-dal.a(MicroBitDevice.cpp.obj)
  .debug_info    0x000000000005fa4c     0x503b ym/microbit-dal/source/microbit-dal.a(MicroBitFiber.cpp.obj)
@@ -7883,10 +7883,10 @@ LOAD linker stubs
 
 .debug_abbrev   0x0000000000000000    0x28ed9
  .debug_abbrev  0x0000000000000000       0x14 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
- .debug_abbrev  0x0000000000000014      0xc1f source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
- .debug_abbrev  0x0000000000000c33      0xded source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
- .debug_abbrev  0x0000000000001a20      0xc82 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .debug_abbrev  0x00000000000026a2      0xc5e source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .debug_abbrev  0x0000000000000014      0xc5e source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .debug_abbrev  0x0000000000000c72      0xc82 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .debug_abbrev  0x00000000000018f4      0xc1f source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+ .debug_abbrev  0x0000000000002513      0xded source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
  .debug_abbrev  0x0000000000003300      0xd63 ym/microbit/source/microbit.a(MicroBit.cpp.obj)
  .debug_abbrev  0x0000000000004063      0x7ef ym/microbit-dal/source/microbit-dal.a(MicroBitDevice.cpp.obj)
  .debug_abbrev  0x0000000000004852      0xb90 ym/microbit-dal/source/microbit-dal.a(MicroBitFiber.cpp.obj)
@@ -8033,13 +8033,13 @@ LOAD linker stubs
  .debug_aranges
                 0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
  .debug_aranges
-                0x0000000000000020       0x40 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+                0x0000000000000020       0x50 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
  .debug_aranges
-                0x0000000000000060       0x90 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                0x0000000000000070       0xd0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
  .debug_aranges
-                0x00000000000000f0       0xd0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                0x0000000000000140       0x40 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
  .debug_aranges
-                0x00000000000001c0       0x50 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+                0x0000000000000180       0x90 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
  .debug_aranges
                 0x0000000000000210       0x48 ym/microbit/source/microbit.a(MicroBit.cpp.obj)
  .debug_aranges
@@ -8325,14 +8325,14 @@ LOAD linker stubs
 
 .debug_str      0x0000000000000000    0x2f922
  .debug_str     0x0000000000000000       0x94 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
- .debug_str     0x0000000000000094    0x13988 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
-                                      0x14378 (size before relaxing)
- .debug_str     0x0000000000013a1c     0x2971 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
-                                      0x16d51 (size before relaxing)
- .debug_str     0x000000000001638d      0x1f1 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
-                                      0x147ce (size before relaxing)
- .debug_str     0x000000000001657e      0x157 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .debug_str     0x0000000000000094    0x13a6a source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
                                       0x14472 (size before relaxing)
+ .debug_str     0x0000000000013afe      0x6ae source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+                                      0x147ce (size before relaxing)
+ .debug_str     0x00000000000141ac      0x23c source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+                                      0x14378 (size before relaxing)
+ .debug_str     0x00000000000143e8     0x22ed source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
+                                      0x16d51 (size before relaxing)
  .debug_str     0x00000000000166d5      0xb22 ym/microbit/source/microbit.a(MicroBit.cpp.obj)
                                       0x1689f (size before relaxing)
  .debug_str     0x00000000000171f7      0xa9d ym/microbit-dal/source/microbit-dal.a(MicroBitDevice.cpp.obj)
@@ -8610,10 +8610,10 @@ LOAD linker stubs
                                         0x184 (size before relaxing)
 
 .debug_loc      0x0000000000000000    0x34ac8
- .debug_loc     0x0000000000000000      0x725 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
- .debug_loc     0x0000000000000725      0xa40 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
- .debug_loc     0x0000000000001165      0xf41 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .debug_loc     0x00000000000020a6     0x1101 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .debug_loc     0x0000000000000000     0x1101 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .debug_loc     0x0000000000001101      0xf41 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .debug_loc     0x0000000000002042      0x725 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+ .debug_loc     0x0000000000002767      0xa40 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
  .debug_loc     0x00000000000031a7      0x61f ym/microbit/source/microbit.a(MicroBit.cpp.obj)
  .debug_loc     0x00000000000037c6      0x94b ym/microbit-dal/source/microbit-dal.a(MicroBitDevice.cpp.obj)
  .debug_loc     0x0000000000004111      0xd12 ym/microbit-dal/source/microbit-dal.a(MicroBitFiber.cpp.obj)
@@ -8735,10 +8735,10 @@ LOAD linker stubs
  .debug_loc     0x0000000000034aa3       0x25 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(kill.o)
 
 .debug_ranges   0x0000000000000000     0x84f0
- .debug_ranges  0x0000000000000000       0x98 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
- .debug_ranges  0x0000000000000098      0x130 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
- .debug_ranges  0x00000000000001c8      0x120 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .debug_ranges  0x00000000000002e8       0xb0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .debug_ranges  0x0000000000000000       0xb0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .debug_ranges  0x00000000000000b0      0x120 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .debug_ranges  0x00000000000001d0       0x98 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+ .debug_ranges  0x0000000000000268      0x130 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
  .debug_ranges  0x0000000000000398       0xb0 ym/microbit/source/microbit.a(MicroBit.cpp.obj)
  .debug_ranges  0x0000000000000448      0x200 ym/microbit-dal/source/microbit-dal.a(MicroBitDevice.cpp.obj)
  .debug_ranges  0x0000000000000648      0x298 ym/microbit-dal/source/microbit-dal.a(MicroBitFiber.cpp.obj)
@@ -8845,10 +8845,10 @@ LOAD linker stubs
  .debug_ranges  0x00000000000084c0       0x30 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(unordsf2.o)
 
 .debug_frame    0x0000000000000000     0x88d0
- .debug_frame   0x0000000000000000       0xb0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
- .debug_frame   0x00000000000000b0      0x1b0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
- .debug_frame   0x0000000000000260      0x284 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
- .debug_frame   0x00000000000004e4       0xe4 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .debug_frame   0x0000000000000000       0xe4 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/bme280.cpp.obj
+ .debug_frame   0x00000000000000e4      0x284 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/ssd1306.cpp.obj
+ .debug_frame   0x0000000000000368       0xb0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/tsl256x.cpp.obj
+ .debug_frame   0x0000000000000418      0x1b0 source/CMakeFiles/microbit-samples.dir/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/source/main.cpp.obj
  .debug_frame   0x00000000000005c8       0xc8 ym/microbit/source/microbit.a(MicroBit.cpp.obj)
  .debug_frame   0x0000000000000690      0x134 ym/microbit-dal/source/microbit-dal.a(MicroBitDevice.cpp.obj)
  .debug_frame   0x00000000000007c4      0x3cc ym/microbit-dal/source/microbit-dal.a(MicroBitFiber.cpp.obj)

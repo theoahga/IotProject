@@ -14,12 +14,43 @@ UDP_PORT       = 10000
 MICRO_COMMANDS = ["TL" , "LT"]
 FILENAME        = "values.txt"
 LAST_VALUE      = ""
-HEADER = "DMST"
+HEADER = "DMST:"
+KEY = 12341
+
+
+def encrypt(text, key):
+    encrypted_text = ''
+    for char in text:
+        encrypted_char = chr(ord(char) + key)
+        encrypted_text += encrypted_char
+    return encrypted_text
+
+def decrypt(text, key):
+    decrypted_text = ''
+    for char in text:
+        decrypted_char = chr(ord(char) - key)
+        decrypted_text += decrypted_char
+    return decrypted_text
+
+def readLastValue():
+    with open("values.txt", "r") as f:
+        lines = f.readlines()
+    if lines:
+        lastline = lines[-1]
+        f.close()
+        return lastline
+    else:
+        return None 
+    
+def SendMessageToAndroid(message, ip, port):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.sendto(bytes(message,'UTF-8'), (ip, port))
+
 
 class ThreadedUDPRequestHandler(socketserver.BaseRequestHandler):
         def checkHeader(self ,data):
                 message = str(data,"UTF-8")
-                header = HEADER+":"
+                header = HEADER
                 if message.startswith(header):
                         return message[len(header):]
                 else:
@@ -31,19 +62,17 @@ class ThreadedUDPRequestHandler(socketserver.BaseRequestHandler):
                 current_thread = threading.current_thread()
                 message = self.checkHeader(data)
                 if message != None:
-                        print("{}: client: {}, wrote: {}".format(current_thread.name, self.client_address, message))
-                        if message != "":
-                                        if message in MICRO_COMMANDS: # Send message through UART
-                                                sendUARTMessage(message)
-                                                
-                                        elif message == "getValues()": # Sent last value received from micro-controller
-                                                print("getvalues(): ", message)
-                                                #socket.sendto(LAST_VALUE, self.client_address) 
-                                                # TODO: Create last_values_received as global variable      
+                        decrypted_text = decrypt(message, KEY)
+                        print("{}: client: {}, wrote: {}".format(current_thread.name, self.client_address, decrypted_text))
+                        if decrypted_text != "":
+                                        if decrypted_text in MICRO_COMMANDS: 
+                                                sendUARTMessage(HEADER + encrypt(decrypted_text,KEY))
+                                        elif decrypted_text == "getValues()": 
+                                                messageToSend = HEADER + encrypt(readLastValue(), KEY)
+                                                SendMessageToAndroid(messageToSend, self.client_address[0], 10000)
                                         else:
-                                                print("Unknown message: ",message)
-                else :
-                        print("Réception d'un message qui n'est pas nous ")
+                                                print("Unknown message: ",decrypted_text)
+
 
 
 

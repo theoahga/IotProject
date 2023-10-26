@@ -12,9 +12,9 @@ MicroBitI2C i2c(I2C_SDA0,I2C_SCL0);
 MicroBitPin P0(MICROBIT_ID_IO_P0, MICROBIT_PIN_P0, PIN_CAPABILITY_DIGITAL_OUT);
 ssd1306 screen(&uBit, &i2c, &P0);
 
-char CODE[] = "DMST";
+ManagedString CODE = "DMST";
 
-char ORDER[] = "LPHT";
+char ORDER[] = "LT";
 
 #define MAX_TEXT_LENGTH 20
 
@@ -72,40 +72,28 @@ bool check_dsmt(ManagedString s){
 void send_RF(ManagedString s){
     ManagedString tosend = CODE + s;
     uBit.radio.datagram.send(tosend);
-    screen.display_line(3,0,tosend.toCharArray());
-    screen.update_screen();
 }
 
 void send_encrypt_RF(ManagedString s){
     char* encryptedText = encrypt(const_cast<char*>(s.toCharArray()), key);
-
     send_RF(encryptedText);
-    
-    screen.display_line(1,0,encryptedText);
-
-    char* decryptedText = decrypt(encryptedText, key);
-
-    screen.display_line(2,0,decryptedText);
-
-    screen.update_screen();
 }
 
 ManagedString decode_RF(ManagedString s){
-    return s.substring(sizeof(CODE), s.length());
+    return decrypt(s.substring(sizeof(CODE), s.length()).toCharArray(), key);
 }
 
 void onData(MicroBitEvent)
 {
     ManagedString s = uBit.radio.datagram.recv();
-    screen.display_line(1,0,s.toCharArray());
+    //screen.display_line(0,0,s.toCharArray());
+    //screen.update_screen();
     
-    screen.display_line(3,0,s.substring(0,sizeof(CODE)).toCharArray());
+    //screen.display_line(3,0,s.substring(0,sizeof(CODE)).toCharArray());
 
-    screen.update_screen();
 
     if (check_dsmt(s)){
-        screen.display_line(2,0,decode_RF(s).toCharArray());
-        screen.update_screen();
+        strncpy(ORDER, decode_RF(s).substring(0,2).toCharArray(), sizeof(ORDER)-1);
     }    
 }
 
@@ -135,10 +123,7 @@ void data(bme280 *bme,tsl256x *tsl, ManagedString order ){
     
     ManagedString d = "T:"+ ManagedString(tmp/100) + "." + (tmp > 0 ? ManagedString(tmp%100): ManagedString((-tmp)%100))+";L:"+ ManagedString((int)lux) +";" + ManagedString((int)currentTime);
     
-    screen.display_line(3,0, order.toCharArray());
-    screen.display_line(4,0, d.toCharArray());
-    /*
-    short datalignestart = 4;
+    short datalignestart = 0;
 
     for (int i=0; i<order.length(); i++){
         screen.display_line(i + datalignestart,0, "              ");
@@ -158,16 +143,9 @@ void data(bme280 *bme,tsl256x *tsl, ManagedString order ){
         default:
             break;
         }
-    }*/
+    }
 
-    send_RF(tempdys);
-    /*
-    send_RF(humdys);
-    send_RF(presdys);
-    */
-    send_RF(luxdys);
-
-    send_encrypt_RF("test");
+    send_encrypt_RF(d);
     screen.update_screen();
 }
 

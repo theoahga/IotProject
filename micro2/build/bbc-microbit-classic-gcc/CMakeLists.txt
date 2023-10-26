@@ -42,9 +42,9 @@ set(YOTTA_BUILD_YEAR "2023") # UTC year
 set(YOTTA_BUILD_MONTH "10") # UTC month 1-12
 set(YOTTA_BUILD_DAY "26") # UTC day 1-31
 set(YOTTA_BUILD_HOUR "14") # UTC hour 0-24
-set(YOTTA_BUILD_MINUTE "21") # UTC minute 0-59
-set(YOTTA_BUILD_SECOND "40") # UTC second 0-61
-set(YOTTA_BUILD_UUID "feef8922-ed98-47d1-ab77-94238c818e4b") # unique random UUID for each build
+set(YOTTA_BUILD_MINUTE "31") # UTC minute 0-59
+set(YOTTA_BUILD_SECOND "16") # UTC second 0-61
+set(YOTTA_BUILD_UUID "12040bbc-0857-4094-8424-81fa8a8217c3") # unique random UUID for each build
 set(TARGET BBC_MICROBIT_CLASSIC_GCC)
 set(TARGET_LIKE_BBC_MICROBIT_CLASSIC_GCC TRUE)
 set(YOTTA_BUILD_INFO_HEADER "/home/maxime.dubois.1/Documents/IOT/IotProject/micro2/build/bbc-microbit-classic-gcc/yotta_build_info.h")

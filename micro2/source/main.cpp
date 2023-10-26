@@ -21,48 +21,25 @@ char ORDER[] = "LT";
 char encryptedText[MAX_TEXT_LENGTH];
 char decryptedText[MAX_TEXT_LENGTH];
 
-char key[] = "bcdefghijklmnopqrstuvwxyz";
+//char key[] = "bcdefghijklmnopqrstuvwxyz";
+int key = 3;
 
-
-char* encrypt(const char* text, char* key) {
+char* encrypt(char *text, int key) {
     int textLength = strlen(text);
-
     for (int i = 0; i < textLength; i++) {
-        char currentChar = text[i];
-        if (isalpha(currentChar)) {
-            char isUpperCase = isupper(currentChar);
-            currentChar = tolower(currentChar);
-            int charIndex = currentChar - 'a';
-            char encryptedChar = isUpperCase ? toupper(key[charIndex]) : key[charIndex];
-            encryptedText[i] = encryptedChar;
-        } else {
-            encryptedText[i] = currentChar;
-        }
+        text[i] = text[i] + key;
     }
-    encryptedText[textLength] = '\0';
-    return encryptedText;
+    return text;
 }
 
-char* decrypt(const char* encryptedText, char* key) {
-    int textLength = strlen(encryptedText);
-
+char* decrypt(char *text, int key) {
+    int textLength = strlen(text);
     for (int i = 0; i < textLength; i++) {
-        char currentChar = encryptedText[i];
-        if (isalpha(currentChar)) {
-            char isUpperCase = isupper(currentChar);
-            currentChar = tolower(currentChar);
-            char* charIndex = strchr(key, currentChar);
-            int index = charIndex - key;
-            char decryptedChar = index + 'a';
-            decryptedChar = isUpperCase ? toupper(decryptedChar) : decryptedChar;
-            decryptedText[i] = decryptedChar;
-        } else {
-            decryptedText[i] = currentChar;
-        }
+        text[i] = text[i] - key;
     }
-    decryptedText[textLength] = '\0';
-    return decryptedText;
+    return text;
 }
+
 
 
 bool check_dsmt(ManagedString s){
@@ -75,12 +52,13 @@ void send_RF(ManagedString s){
 }
 
 void send_encrypt_RF(ManagedString s){
+    //char* encryptedText = encrypt(s.toCharArray(), key);
     char* encryptedText = encrypt(const_cast<char*>(s.toCharArray()), key);
     send_RF(encryptedText);
 }
 
 ManagedString decode_RF(ManagedString s){
-    return decrypt(s.substring(sizeof(CODE), s.length()).toCharArray(), key);
+    return decrypt(const_cast<char*>(s.substring(sizeof(CODE), s.length()).toCharArray()), key);
 }
 
 void onData(MicroBitEvent)

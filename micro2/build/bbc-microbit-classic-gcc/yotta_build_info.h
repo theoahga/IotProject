@@ -5,7 +5,7 @@
 #define YOTTA_BUILD_MONTH 10 // UTC month 1-12
 #define YOTTA_BUILD_DAY 26 // UTC day 1-31
 #define YOTTA_BUILD_HOUR 14 // UTC hour 0-24
-#define YOTTA_BUILD_MINUTE 21 // UTC minute 0-59
-#define YOTTA_BUILD_SECOND 40 // UTC second 0-61
-#define YOTTA_BUILD_UUID feef8922-ed98-47d1-ab77-94238c818e4b // unique random UUID for each build
+#define YOTTA_BUILD_MINUTE 31 // UTC minute 0-59
+#define YOTTA_BUILD_SECOND 16 // UTC second 0-61
+#define YOTTA_BUILD_UUID 12040bbc-0857-4094-8424-81fa8a8217c3 // unique random UUID for each build
 #endif // ndef __YOTTA_BUILD_INFO_H__

@@ -33,7 +33,7 @@ def decrypt(text, key):
     return decrypted_text
 
 def readLastValue():
-    with open("values.txt", "r") as f:
+    with open("./values.txt", "r") as f:
         lines = f.readlines()
     if lines:
         lastline = lines[-1]
@@ -69,6 +69,7 @@ class ThreadedUDPRequestHandler(socketserver.BaseRequestHandler):
                                                 sendUARTMessage(HEADER + encrypt(decrypted_text,KEY))
                                         elif decrypted_text == "getValues()": 
                                                 messageToSend = HEADER + encrypt(readLastValue(), KEY)
+                                                print(messageToSend)
                                                 SendMessageToAndroid(messageToSend, self.client_address[0], 10000)
                                         else:
                                                 print("Unknown message: ",decrypted_text)
@@ -84,58 +85,74 @@ class ThreadedUDPServer(socketserver.ThreadingMixIn, socketserver.UDPServer):
 
 
 # send serial message 
-SERIALPORT = "COM3"
+SERIALPORT = "/dev/ttyACM0"
 BAUDRATE = 115200
 ser = serial.Serial()
 
-def initUART():        
-        # ser = serial.Serial(SERIALPORT, BAUDRATE)
-        ser.port=SERIALPORT
-        ser.baudrate=BAUDRATE
-        ser.bytesize = serial.EIGHTBITS #number of bits per bytes
-        ser.parity = serial.PARITY_NONE #set parity check: no parity
-        ser.stopbits = serial.STOPBITS_ONE #number of stop bits
-        ser.timeout = None          #block read
 
-        # ser.timeout = 0             #non-block read
-        # ser.timeout = 2              #timeout block read
-        ser.xonxoff = False     #disable software flow control
-        ser.rtscts = False     #disable hardware (RTS/CTS) flow control
-        ser.dsrdtr = False       #disable hardware (DSR/DTR) flow control
-        #ser.writeTimeout = 0     #timeout for write
-        print("Starting Up Serial Monitor")
-        try:
-                ser.open()
-        except serial.SerialException:
-                print("Serial {} port not available".format(SERIALPORT))
-                exit()
+def initUART():
+    # ser = serial.Serial(SERIALPORT, BAUDRATE)
+    ser.port = SERIALPORT
+    ser.baudrate = BAUDRATE
+    ser.bytesize = serial.EIGHTBITS  # number of bits per bytes
+    ser.parity = serial.PARITY_NONE  # set parity check: no parity
+    ser.stopbits = serial.STOPBITS_ONE  # number of stop bits
+    ser.timeout = None  # block read
 
+    # ser.timeout = 0             #non-block read
+    # ser.timeout = 2              #timeout block read
+    ser.xonxoff = False  # disable software flow control
+    ser.rtscts = False  # disable hardware (RTS/CTS) flow control
+    ser.dsrdtr = False  # disable hardware (DSR/DTR) flow control
+    # ser.writeTimeout = 0     # timeout for write
+    print('Starting Up Serial Monitor')
+    try:
+        ser.open()
+    except serial.SerialException:
+        print("Serial {} port not available".format(SERIALPORT))
+        exit()
 
 
 def sendUARTMessage(msg):
-    ser.write(msg)
-    print("Message <" + msg + "> sent to micro-controller." )
+    ser.write(bytes(msg, 'UTF-8'))
+    print("Message <" + msg + "> sent to micro-controller.")
 
 
 # Main program logic follows:
 if __name__ == '__main__':
-        #initUART()
-        f= open(FILENAME,"a")
-        print ('Press Ctrl-C to quit.')
+    #initUART()
+    f = open(FILENAME, "a")
+    print('Press Ctrl-C to quit.')
 
-        server = ThreadedUDPServer((HOST, UDP_PORT), ThreadedUDPRequestHandler)
+    server = ThreadedUDPServer((HOST, UDP_PORT), ThreadedUDPRequestHandler)
 
-        server_thread = threading.Thread(target=server.serve_forever)
-        server_thread.daemon = True
+    server_thread = threading.Thread(target=server.serve_forever)
+    server_thread.daemon = True
 
-        try:
-                server_thread.start()
-                print("Server started at {} port {}".format(HOST, UDP_PORT))
-                
-                server_thread.join()
-        except (KeyboardInterrupt, SystemExit):
-                server.shutdown()
-                server.server_close()
-                f.close()
-                ser.close()
-                exit()
+    try:
+        server_thread.start()
+        print("Server started at {} port {}".format(HOST, UDP_PORT))
+
+
+        while ser.isOpen():
+            # time.sleep(100)
+            if (ser.inWaiting() > 0):  # if incoming bytes are waiting
+                data_str = ser.read(ser.inWaiting())
+                data_new = str(data_str, 'UTF-8')
+                if ("SWITCH" in data_new):
+                   sendUARTMessage("TL")
+                else:
+                    f.write(data_new)
+                    LAST_VALUE = data_str
+                    # print("time :" + datetime.datetime.now());
+                print(data_new)
+
+        server_thread.join()
+        
+
+    except (KeyboardInterrupt, SystemExit):
+        server.shutdown()
+        server.server_close()
+        f.close()
+        ser.close()
+        exit()

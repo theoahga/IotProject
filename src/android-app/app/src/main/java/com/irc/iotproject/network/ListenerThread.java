@@ -1,22 +1,40 @@
 package com.irc.iotproject.network;
 
+import com.irc.iotproject.ThreadListener;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.SocketException;
+import java.util.concurrent.ArrayBlockingQueue;
 
-public class ReceiveThread extends Thread{
+public class ListenerThread extends Thread{
+    private final int port;
+    private ArrayBlockingQueue<String> messageToSendBlockingQueue;
 
-    public ReceiveThread(String port){
-
+    public ListenerThread(@NotNull int port, ArrayBlockingQueue<String> messageToSendBlockingQueue ){
+        this.port = port;
+        this.messageToSendBlockingQueue = messageToSendBlockingQueue;
     }
 
     @Override
     public void run() {
         try{
-            DatagramSocket socket = new DatagramSocket(10000);
-            byte[] receiveData = new byte[1024];
+            DatagramSocket socket = new DatagramSocket(port);
 
-        } catch (SocketException e) {
+            byte[] buffer = new byte[1024];
+            DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+
+            // Waiting a response
+            socket.receive(packet);
+            String message = new String(packet.getData(), 0, packet.getLength());
+            messageToSendBlockingQueue.put(message);
+
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        Thread.currentThread().interrupt();
     }
+
 }

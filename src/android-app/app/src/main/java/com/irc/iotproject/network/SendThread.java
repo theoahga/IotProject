@@ -6,12 +6,12 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.concurrent.BlockingQueue;
 
-public class UdpThread extends Thread{
+public class SendThread extends Thread{
     private BlockingQueue<String> queue;
     private String ip;
     private String port;
 
-    public UdpThread(BlockingQueue<String> queue, String ip, String port){
+    public SendThread(BlockingQueue<String> queue, String ip, String port){
         this.queue = queue;
         this.ip = ip;
         this.port = port;
@@ -28,8 +28,7 @@ public class UdpThread extends Thread{
             UDPSocket.send(packet);
         } catch (InterruptedException | IOException e) {
             throw new RuntimeException(e);
-        } finally {
-            Thread.currentThread().interrupt();
         }
+        Thread.currentThread().interrupt();
     }
 }

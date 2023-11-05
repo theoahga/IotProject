@@ -20,4 +20,8 @@ public class CrytoUtils {
         }
         return decryptedText.toString();
     }
+
+    public static int getKey() throws NumberFormatException{
+        return Integer.parseInt(System.getProperty("crypto_key"));
+    }
 }

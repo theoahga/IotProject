@@ -49,6 +49,7 @@ def readLastValue():
         return None 
     
 def SendMessageToAndroid(message, ip, port):
+        print("Message send : {}, {}, {} ".format(message, ip, port))
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.sendto(bytes(message,'UTF-8'), (ip, port))
 
@@ -75,8 +76,7 @@ class ThreadedUDPRequestHandler(socketserver.BaseRequestHandler):
                                                 sendUARTMessage(HEADER + encrypt(decrypted_text,KEY))
                                         elif decrypted_text == "getValues()": 
                                                 messageToSend = HEADER + encrypt(readLastValue(), KEY)
-                                                print("Message send : {}".format(messageToSend))
-                                                SendMessageToAndroid(messageToSend, self.client_address[0], 10000)
+                                                SendMessageToAndroid(messageToSend, self.client_address[0], 10001)
                                         else:
                                                 print("Unknown message: ",decrypted_text)
 

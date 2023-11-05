@@ -26,9 +26,12 @@ public class SendThread extends Thread{
             byte[] data = message.getBytes();
             DatagramPacket packet = new DatagramPacket(data,data.length, address, Integer.parseInt(this.port));
             UDPSocket.send(packet);
+            UDPSocket.close();
         } catch (InterruptedException | IOException e) {
             throw new RuntimeException(e);
+        } finally {
+            Thread.currentThread().interrupt();
         }
-        Thread.currentThread().interrupt();
+
     }
 }

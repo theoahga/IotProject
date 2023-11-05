@@ -30,11 +30,11 @@ public class ListenerThread extends Thread{
             String message = new String(packet.getData(), 0, packet.getLength());
             messageToSendBlockingQueue.put(message);
 
+            socket.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-        Thread.currentThread().interrupt();
     }
 
 }

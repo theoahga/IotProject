@@ -55,16 +55,16 @@ public class MessageUtils {
         }
     }
 
-    public static Map<String, Double> getDatasetFromRawMessage(String message){
-        Map<String, Double> result = new HashMap<>();
+    public static Map<String, String> getDatasetFromRawMessage(String message){
+        Map<String, String> result = new HashMap<>();
         String[] elements = message.split(";");
         for (String elt : elements) {
             if(elt.startsWith("T:")){
-                result.put("temperature", Double.parseDouble(elt.substring("T:".length())));
+                result.put("temperature", elt.substring("T:".length()));
             }else if (elt.startsWith("L:")) {
-                result.put("brightness", Double.parseDouble(elt.substring("L:".length())));
+                result.put("brightness", elt.substring("L:".length()));
             }else {
-                result.put("timestamp", Double.parseDouble(elt));
+                result.put("timestamp", elt);
             }
         }
         return result;

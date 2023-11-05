@@ -11,7 +11,7 @@ public class PropertiesUtils {
         Properties properties = new Properties();
         properties.setProperty("request_header","DMST");
         properties.setProperty("crypto_key","12341");
-        properties.setProperty("listened_port","10000");
+        properties.setProperty("listened_port","10001");
 
         System.setProperties(properties);
     }

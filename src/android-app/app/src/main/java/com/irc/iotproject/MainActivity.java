@@ -9,12 +9,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.graphics.Typeface;
 import android.media.metrics.PlaybackStateEvent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.irc.iotproject.model.CustomAdapter;
@@ -24,6 +27,9 @@ import com.irc.iotproject.network.SendThread;
 import com.irc.iotproject.utils.MessageUtils;
 import com.irc.iotproject.utils.PropertiesUtils;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -36,15 +42,19 @@ public class MainActivity extends AppCompatActivity {
     private CustomAdapter recyclerAdapter;
     private EditText ip;
     private EditText port;
-    private Button connectBtn;
+    private Button loopBtn;
     private TextView lastUpdate;
     private ArrayBlockingQueue<String> messageToSendBlockingQueue = new ArrayBlockingQueue<>(10);
-    private ArrayBlockingQueue<String> receivedMessageBlockingQueue = new ArrayBlockingQueue<>(10);
+    private ArrayBlockingQueue<String> receivedMessageBlockingQueue = new ArrayBlockingQueue<>(1);
     private List<UnitItem> unitItems;
     private UnitItem brightnessItem;
     private UnitItem temperatureItem;
-
+    private CountDownTimer countDownTimer;
+    private CountDownTimer progressbarTimer;
+    private boolean isLoopRunning = false;
+    private ProgressBar progressBar;
     private TextView test;
+    private EditText timing;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,8 +67,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
         ip = findViewById(R.id.ip);
         port = findViewById(R.id.port);
-        connectBtn = findViewById(R.id.connect);
+        loopBtn = findViewById(R.id.connect);
         lastUpdate = findViewById(R.id.lastUpdateTime);
+        progressBar = findViewById(R.id.progressBar);
+        timing = findViewById(R.id.timing);
 
         test = findViewById(R.id.textdetest);
 
@@ -69,9 +81,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButton() {
-       connectBtn.setOnClickListener(v -> {
-           sendMessage("getValues()");
-           handleReceiveMessage();
+
+        // Loop Button
+       loopBtn.setOnClickListener(v -> {
+           if (!isLoopRunning) {
+               startLoopForNSeconds(Integer.parseInt(timing.getText().toString()));
+
+               isLoopRunning = true;
+
+               loopBtn.setText("Stop");
+           } else {
+               stopLoop();
+
+               loopBtn.setText("Start");
+           }
        });
     }
 
@@ -85,10 +108,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handleReceiveMessage(){
-        // Start listener Thread
-        ListenerThread listenerThread = new ListenerThread(Integer.parseInt(System.getProperty("listened_port")), receivedMessageBlockingQueue);
-        listenerThread.start();
-
         // Waiting the response
         String message = null;
         try {
@@ -99,19 +118,73 @@ public class MainActivity extends AppCompatActivity {
 
 
         String rawMessage = MessageUtils.getRawMessage(message);
-        Map<String, Double> dataset = MessageUtils.getDatasetFromRawMessage(rawMessage);
-        temperatureItem.setValue(dataset.get("temperature"));
-        brightnessItem.setValue(dataset.get("brightness"));
+        Map<String, String> dataset = MessageUtils.getDatasetFromRawMessage(rawMessage);
+        temperatureItem.setValue(Double.parseDouble(dataset.get("temperature")));
+        brightnessItem.setValue(Double.parseDouble(dataset.get("brightness")));
 
         // Last update timestamp
-        Date date = new Date(Integer.parseInt(String.valueOf(dataset.get("timestamp"))));
-        SpannableString spanString = new SpannableString(date.toString());
+        Date date = new Date(Long.parseLong(dataset.get("timestamp")));
+        LocalDateTime localDateTime = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String dateTimeFormatted = localDateTime.format(formatter);
+
+        SpannableString spanString = new SpannableString("Last Update : " +dateTimeFormatted);
         spanString.setSpan(new StyleSpan(Typeface.ITALIC), 0, spanString.length(), 0);
         lastUpdate.setText(spanString);
 
         recyclerAdapter.notifyDataSetChanged();
     }
 
+    private void startLoopForNSeconds(int n) {
+        int second = n * 1000;
+
+        // Progress bar Timer
+        progressbarTimer = new CountDownTimer(second, 10){
+            @Override
+            public void onTick(long millisUntilFinished) {
+                long secondsRemaining = millisUntilFinished / 1000;
+                int progress = (int) (100 * millisUntilFinished / second);
+                progressBar.setProgress(progress);
+            }
+
+            @Override
+            public void onFinish() {
+                progressBar.setProgress(0);
+            }
+        };
+
+        // Loop Timer
+        countDownTimer = new CountDownTimer(10000000, second) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                long secondsRemaining = millisUntilFinished / 1000;
+
+                progressBar.setProgress(100);
+                progressbarTimer.start();
+
+                ListenerThread listenerThread = new ListenerThread(Integer.parseInt(System.getProperty("listened_port")),receivedMessageBlockingQueue);
+                listenerThread.start();
+
+                sendMessage("getValues()");
+
+                handleReceiveMessage();
+            }
+
+            @Override
+            public void onFinish() {
+                loopBtn.setText("Start");
+            }
+        };
+
+        progressbarTimer.start();
+        countDownTimer.start();
+    }
+
+    private void stopLoop() {
+        countDownTimer.cancel();
+        progressbarTimer.cancel();
+        isLoopRunning = false;
+    }
 
     private void initRecyclerView(){
         // Units Initialization
@@ -149,9 +222,9 @@ public class MainActivity extends AppCompatActivity {
                 order += item.getAlias();
             }
 
-
+            sendMessage(order);
             // TODO send this order
-            test.setText(order);
+            test.setText("Send to passerelle : "+order);
 
             return false;
         }

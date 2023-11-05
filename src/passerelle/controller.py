@@ -8,6 +8,7 @@ import socket
 import socketserver
 import serial
 import threading
+import os
 
 HOST           = "0.0.0.0"
 UDP_PORT       = 10000
@@ -33,7 +34,12 @@ def decrypt(text, key):
     return decrypted_text
 
 def readLastValue():
-    with open("./values.txt", "r") as f:
+    absolute_path = os.path.dirname(__file__)
+    relative_path = "values.txt"
+    full_path = os.path.join(absolute_path, relative_path)
+
+
+    with open(full_path, "r") as f:
         lines = f.readlines()
     if lines:
         lastline = lines[-1]
@@ -69,7 +75,7 @@ class ThreadedUDPRequestHandler(socketserver.BaseRequestHandler):
                                                 sendUARTMessage(HEADER + encrypt(decrypted_text,KEY))
                                         elif decrypted_text == "getValues()": 
                                                 messageToSend = HEADER + encrypt(readLastValue(), KEY)
-                                                print(messageToSend)
+                                                print("Message send : {}".format(messageToSend))
                                                 SendMessageToAndroid(messageToSend, self.client_address[0], 10000)
                                         else:
                                                 print("Unknown message: ",decrypted_text)

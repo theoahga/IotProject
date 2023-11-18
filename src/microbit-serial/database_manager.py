@@ -53,6 +53,12 @@ class DatabaseManager:
         for value in allvalues:
             print(value)
 
+    def print_last_ten_values(self):
+        self.cursor.execute("SELECT * FROM sensor_data ORDER BY id DESC LIMIT 10")
+        allvalues = self.cursor.fetchall()
+        for value in allvalues:
+            print(value)
+
     def close(self):
         self.cursor.close()
         self.connection.close()

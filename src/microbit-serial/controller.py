@@ -37,22 +37,9 @@ def decrypt(text, key):
     return decrypted_text
 
 def readLastValue():
-    # absolute_path = os.path.dirname(__file__)
-    # relative_path = "values.txt"
-    # full_path = os.path.join(absolute_path, relative_path)
-
     temp, lux, timestamp = db.get_last_value()
     # convert timestamp to milliseconds
     return "T:{};L:{};{}".format(temp, lux, int(timestamp.timestamp() * 1000))
-
-    # with open(full_path, "r") as f:
-    #     lines = f.readlines()
-    # if lines:
-    #     lastline = lines[-1]
-    #     f.close()
-    #     return lastline
-    # else:
-    #     return None 
     
 def SendMessageToAndroid(message, ip, port):
         print("Message send : {}, {}, {} ".format(message, ip, port))

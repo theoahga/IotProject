@@ -2,6 +2,9 @@ package com.irc.iotproject.model;
 
 import androidx.annotation.NonNull;
 
+/**
+ * The item represents temp or lux ...
+ * */
 public class UnitItem {
     private final String unit;
     private Double value;

@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButton() {
-
         // Loop Button
        loopBtn.setOnClickListener(v -> {
            if (!isLoopRunning) {
@@ -153,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        // Loop Timer
+        // Long Loop Timer
         countDownTimer = new CountDownTimer(10000000, second) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -208,6 +207,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    // Drag & Drop Callback
     ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.START | ItemTouchHelper.END, 0) {
         @Override
         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {

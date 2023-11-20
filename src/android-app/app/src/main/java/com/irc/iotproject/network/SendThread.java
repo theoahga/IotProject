@@ -6,6 +6,9 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.concurrent.BlockingQueue;
 
+/**
+ * The thread allows us to send message from a UDP packet
+ * */
 public class SendThread extends Thread{
     private BlockingQueue<String> queue;
     private String ip;

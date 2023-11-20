@@ -1,13 +1,14 @@
 package com.irc.iotproject.network;
 
-import com.irc.iotproject.ThreadListener;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.concurrent.ArrayBlockingQueue;
-
+/**
+ * The thread allows to listen messages from UDP packets on a specific port
+ * */
 public class ListenerThread extends Thread{
     private final int port;
     private ArrayBlockingQueue<String> messageToSendBlockingQueue;

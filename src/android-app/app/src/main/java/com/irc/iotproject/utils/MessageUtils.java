@@ -5,6 +5,9 @@ import com.irc.iotproject.exceptions.NullMessageException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Utils related to message treatment
+ * */
 public class MessageUtils {
     public static String buildMessageWithHeader(String rawMessage) {
         return getHeader() + ":" + encryptRawMessage(rawMessage);

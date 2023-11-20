@@ -63,7 +63,7 @@ void onData(MicroBitEvent)
 {
     ManagedString s = uBit.radio.datagram.recv();
     screen.display_line(6,0,decode_RF(s).toCharArray());
-    //screen.update_screen();
+    screen.update_screen();
     
     //screen.display_line(3,0,s.substring(0,sizeof(CODE)).toCharArray());
 

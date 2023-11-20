@@ -10,7 +10,7 @@ public class PropertiesUtils {
         // Cannot load a config file ... So we did it by code
         Properties properties = new Properties();
         properties.setProperty("request_header","DMST");
-        properties.setProperty("crypto_key","12341");
+        properties.setProperty("crypto_key","18");
         properties.setProperty("listened_port","10001");
 
         System.setProperties(properties);

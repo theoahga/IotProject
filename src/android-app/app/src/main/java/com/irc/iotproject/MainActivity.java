@@ -223,7 +223,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
             sendMessage(order);
-            // TODO send this order
             test.setText("Send to passerelle : "+order);
 
             return false;

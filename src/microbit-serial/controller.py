@@ -134,7 +134,7 @@ def extractDataFromSerial(data):
         lux = float(parts[1].split(':')[1])
 
         return temperature, lux
-
+    # If there is an error while extracting data, we return -1, -1 to keep a trace
     except (ValueError, IndexError) as e:
         print(f"Erreur lors de l'extraction des données: {e}")
         return -1, -1
@@ -160,18 +160,19 @@ if __name__ == '__main__':
         server_thread.start()
         print("Server started at {} port {}".format(HOST, UDP_PORT))
         while ser.isOpen():
-            # time.sleep(100)
             if (ser.inWaiting() > 0):  # if incoming bytes are waiting
                 # Read incoming data from Microbit
                 data_new = ser.read(ser.inWaiting())
                 # We use a buffer to store the data until we find the delimiter
                 buffer += data_new
                 while delimiter in buffer:
+                    # Extract data from buffer until delimiter
                     message, buffer = buffer.split(delimiter, 1)
                     message_str = message.decode('utf-8')
                     
-                    print("(SERIAL) received (encoded): " + message_str)
+                    print("(SERIAL) received: " + message_str)
 
+                    # If message is not TL or LT, it's data from microbit, so we insert it in database
                     if message_str not in MICRO_COMMANDS:
                         temp, lux = extractDataFromSerial(message_str)
                         # Insert data in database

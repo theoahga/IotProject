@@ -22,7 +22,7 @@ char ORDER[] = "LT";
 char encryptedText[MAX_TEXT_LENGTH];
 char decryptedText[MAX_TEXT_LENGTH];
 
-
+//Encryption des données RF
 char* encrypt(char *text, int key) {
     int textLength = strlen(text);
     for (int i = 0; i < textLength; i++) {
@@ -40,34 +40,39 @@ char* decrypt(char *text, int key) {
 }
 
 
-
+// Vérification que la trame est bien pour nous
 bool check_dsmt(ManagedString s){
     return s.substring(0,CODE.length()) == CODE;
 }
 
+//Envoie des données en RF
 void send_RF(ManagedString s){
     ManagedString tosend = CODE + s;
     uBit.radio.datagram.send(tosend);
 }
 
+//Encryption des données
 void send_encrypt_RF(ManagedString s){
     char* encryptedText = encrypt(const_cast<char*>(s.toCharArray()), key);
     send_RF(encryptedText);
 }
 
+//Décodage des données reçu
 ManagedString decode_RF(ManagedString s){
     return decrypt(const_cast<char*>(s.substring(CODE.length(), s.length()-1).toCharArray()), key);
 }
 
+//Quand on reçoit des données en RF
 void onData(MicroBitEvent)
 {
     ManagedString s = uBit.radio.datagram.recv();
 
     if (check_dsmt(s)){
-        strncpy(ORDER, decode_RF(s).toCharArray(), sizeof(ORDER)-1);   
+        strncpy(ORDER, decode_RF(s).toCharArray(), sizeof(ORDER)-1); //On modifie l'ordre
     }
 }
 
+//Récupéation des données
 void data(bme280 *bme,tsl256x *tsl, ManagedString order ){
 
     uint32_t pressure = 0;
@@ -84,17 +89,13 @@ void data(bme280 *bme,tsl256x *tsl, ManagedString order ){
     short hum = bme->compensate_humidity(humidite);
 
     tsl->sensor_read(&comb, &ir, &lux);
-
-
-    ManagedString tempdys = "Temp:" + ManagedString(tmp/100) + "." + (tmp > 0 ? ManagedString(tmp%100): ManagedString((-tmp)%100))+" C";
-    ManagedString humdys = "Humi:" + ManagedString(hum/100) + "." + ManagedString(tmp%100)+" rH";
-    ManagedString presdys = "Pres:" + ManagedString(pres)+" hPa";
-    ManagedString luxdys = "Lux:" + ManagedString((int)lux);
     
+    //Création de la trame RF
     ManagedString d = "T:"+ ManagedString(tmp/100) + "." + (tmp > 0 ? ManagedString(tmp%100): ManagedString((-tmp)%100))+";L:"+ ManagedString((int)lux) +"|";
     
     short datalignestart = 0;
     
+    //Affichage des données celon l'ordre
     for (int i=0; i<order.length(); i++){
         screen.display_line(i + datalignestart,0, "              ");
         switch(order.toCharArray()[i]) {
@@ -115,6 +116,7 @@ void data(bme280 *bme,tsl256x *tsl, ManagedString order ){
         }
     }
 
+    //On envoit les données
     send_encrypt_RF(d);
     screen.update_screen();
 }
@@ -139,21 +141,6 @@ int main()
     
     while(1)
     {
-        /*
-        if (uBit.buttonA.isPressed())
-        {
-
-            send_RF("Coucou");
-            serial.send("test");
-        }
-
-        else if (uBit.buttonB.isPressed())
-        {
-
-            send_RF("Hello World ! ");
-
-        }
-        */
         data(&bme, &tsl, ORDER);
         uBit.sleep(1000);
     }

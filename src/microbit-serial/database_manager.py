@@ -7,10 +7,12 @@ class DatabaseManager:
         self.connection = None
         self.cursor = None
 
+    # Load database configuration from json file
     def load_config(self, config_file):
         with open(config_file, 'r') as file:
             return json.load(file)['database']
 
+    # Connect to database
     def connect(self):
         try:
             self.connection = mysql.connector.connect(
@@ -20,6 +22,7 @@ class DatabaseManager:
             )
             self.cursor = self.connection.cursor()
             print("DB MANAGER - Connected to:", self.connection.get_server_info())
+            # Create database and table if they don't exist
             self.cursor.execute("CREATE DATABASE IF NOT EXISTS {}".format(self.config['database_name']))
             self.cursor.execute("USE {}".format(self.config['database_name']))
             self.cursor.execute("CREATE TABLE IF NOT EXISTS sensor_data (id INT AUTO_INCREMENT PRIMARY KEY, timestamp TIMESTAMP, temperature FLOAT, lux FLOAT);")
@@ -27,6 +30,7 @@ class DatabaseManager:
             print("Error while connecting to database :", err)
             exit(1)
 
+    # Insert data in database
     def insert_data(self, temperature, lux, timestamp):
         query = "INSERT INTO sensor_data (temperature, lux, timestamp) VALUES (%s, %s, %s)"
         values = (temperature, lux, timestamp)
@@ -39,6 +43,7 @@ class DatabaseManager:
             self.connection.rollback()
             return False
 
+    # Get last value from database for android app
     def get_last_value(self):
         self.cursor.execute("SELECT * FROM sensor_data ORDER BY id DESC LIMIT 1")
         last_value = self.cursor.fetchone()
@@ -47,18 +52,21 @@ class DatabaseManager:
         last_lux = last_value[3]
         return last_temp, last_lux, last_timestamp
 
+    # Print all values from database
     def print_all_values(self):
         self.cursor.execute("SELECT * FROM sensor_data")
         allvalues = self.cursor.fetchall()
         for value in allvalues:
             print(value)
 
+    # Print last 10 values from database
     def print_last_ten_values(self):
         self.cursor.execute("SELECT * FROM sensor_data ORDER BY id DESC LIMIT 10")
         allvalues = self.cursor.fetchall()
         for value in allvalues:
             print(value)
 
+    # Close database connection
     def close(self):
         self.cursor.close()
         self.connection.close()

@@ -7,7 +7,7 @@
 
 #define MAX_TEXT_LENGTH 20
 
-ManagedString CODE = "DMST";
+ManagedString CODE = "DMST:";
 
 
 MicroBit uBit;
@@ -24,7 +24,7 @@ int key = 18;
 char* encrypt(char *text, int key) {
     int textLength = strlen(text);
 
-    for (int i = 0; i < textLength-1; i++) {
+    for (int i = 0; i < textLength; i++) {
         text[i] = text[i] + key;
     }
     return text;
@@ -48,7 +48,9 @@ void send_RF(ManagedString s){
 }
 
 void send_encrypt_RF(ManagedString s){
-    char* encryptedText = encrypt(const_cast<char*>(s.toCharArray()), key);
+    char *tosend = const_cast<char*>(s.toCharArray());
+    char* encryptedText = encrypt(tosend, key);
+    uBit.display.scroll(encryptedText);
     send_RF(encryptedText);
 }
 
@@ -64,17 +66,8 @@ void onData(MicroBitEvent) {
     if (check_dmst(recData)) {
         char* decryptedText = decode_RF(recData);
         serial.send(decryptedText);
-        serial.send("\n");
     }
 }
-// void onSerialData() {
-//     uBit.display.scroll("0");
-//     ManagedString receivedData = "1";
-//     receivedData = uBit.serial.read();
-//
-//     uBit.display.scroll(receivedData);
-// }
- 
 
 int main() {
 
@@ -82,7 +75,6 @@ int main() {
     uBit.init();
     uBit.serial.baud(115200);
     uBit.messageBus.listen(MICROBIT_ID_RADIO, MICROBIT_RADIO_EVT_DATAGRAM, onData);
-    // uBit.messageBus.listen(MICROBIT_ID_SERIAL, MICROBIT_SERIAL_EVT_RX_FULL, onSerialData);
 
     uBit.radio.enable();
     uBit.radio.setGroup(57);
@@ -92,28 +84,20 @@ int main() {
     while (1) {
 
         if (uBit.buttonA.isPressed()) {
-            // serial.send;
+            // for testing purpose
             char tosend[128];
             snprintf(tosend, sizeof(tosend), "T:99.99;L:999;%d|", t);
-            serial.send(encrypt(tosend, key));
+            serial.send(tosend);
             t++;
         }
-        // serial.send("SWITCH");
         ManagedString toRead = serial.read(sizeof(char[128]), ASYNC);
 
-        // onSerialData();
-        // serial.send("READ:");
-
         // receive data from serial : LT or TL
-        if (sizeof(toRead) != 0 && (toRead == "LT" || toRead == "TL"))
+        if (toRead == "LT" || toRead == "TL")
         {
-            //TODO serial.send and scroll is just for debugging => remove it
-            uBit.display.scroll(toRead);
-            serial.send(ManagedString(toRead + "|"));
             // send it encrypted to distant microbit
-            // send_encrypt_RF(toRead);
+            send_encrypt_RF(toRead);
         }
-
         uBit.sleep(1000);
     }
 }

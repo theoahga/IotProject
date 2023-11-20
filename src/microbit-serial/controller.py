@@ -75,7 +75,7 @@ class ThreadedUDPRequestHandler(socketserver.BaseRequestHandler):
             if decrypted_text != "":
                 # If message is TL or LT, send it to microbit through UART, to change order
                 if decrypted_text in MICRO_COMMANDS: 
-                    sendUARTMessage(HEADER + encrypt(decrypted_text,KEY))
+                    sendUARTMessage(decrypted_text)
                 # If message is getValues(), send last value to android app
                 elif decrypted_text == "getValues()": 
                     messageToSend = HEADER + encrypt(readLastValue(), KEY)
@@ -102,7 +102,6 @@ def initUART():
     ser.parity = serial.PARITY_NONE  # set parity check: no parity
     ser.stopbits = serial.STOPBITS_ONE  # number of stop bits
     ser.timeout = None  # block read
-
     # ser.timeout = 0             #non-block read
     # ser.timeout = 2              #timeout block read
     ser.xonxoff = False  # disable software flow control
@@ -118,7 +117,6 @@ def initUART():
 
 
 def sendUARTMessage(msg):
-    # ser.write(bytes(msg, 'UTF-8'))
     try:
         ser.write(msg.encode('utf-8'))
         print("Message <" + msg + "> sent to micro-controller.")
@@ -129,19 +127,17 @@ def sendUARTMessage(msg):
 def extractDataFromSerial(data):
     try:
         # Exemple de chaîne de données
-        # T:23.45;L:500;1635486321
         # T:23.45;L:500
         parts = data.split(';')
 
         temperature = float(parts[0].split(':')[1])
         lux = float(parts[1].split(':')[1])
-        # timestamp = int(parts[2])
 
-        return temperature, lux #, timestamp
+        return temperature, lux
 
     except (ValueError, IndexError) as e:
         print(f"Erreur lors de l'extraction des données: {e}")
-        return -1, -1 #, -1
+        return -1, -1
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -150,12 +146,9 @@ if __name__ == '__main__':
     # Init database connection
     db = DatabaseManager()
     db.connect()
-    # Open file to write values
-    # f = open(FILENAME, "a")
     print('Press Ctrl-C to quit.')
     # Create UDP server to communicate with android app
     server = ThreadedUDPServer((HOST, UDP_PORT), ThreadedUDPRequestHandler)
-    
     server_thread = threading.Thread(target=server.serve_forever)
     server_thread.daemon = True
 
@@ -173,38 +166,25 @@ if __name__ == '__main__':
                 data_new = ser.read(ser.inWaiting())
                 # We use a buffer to store the data until we find the delimiter
                 buffer += data_new
-                print("Buffer after reading data:", buffer)
                 while delimiter in buffer:
                     message, buffer = buffer.split(delimiter, 1)
-                    message_str_encoded = message.decode('utf-8')
-                    # message_str_decoded = decrypt(message_str_encoded, KEY) 
+                    message_str = message.decode('utf-8')
                     
-                    print("(SERIAL) received (encoded): " + message_str_encoded)
-                    # print("(SERIAL) received (decoded): " + message_str_decoded + "\n")
+                    print("(SERIAL) received (encoded): " + message_str)
 
-                    # sendUARTMessage("TL")
-                    # time.sleep(1)
-                    # Extract data if message is not LT or TL
-                    # if message_str_decoded not in MICRO_COMMANDS:
-                    if message_str_encoded not in MICRO_COMMANDS:
-                        # temp, lux = extractDataFromSerial(message_str_decoded)
-                        temp, lux = extractDataFromSerial(message_str_encoded)
+                    if message_str not in MICRO_COMMANDS:
+                        temp, lux = extractDataFromSerial(message_str)
                         # Insert data in database
                         if db.insert_data(temp, lux, datetime.now()):
                             print("Data inserted in database :", temp, lux, datetime.now())
                         else:
                             print("Error while inserting data in database")
-                    # else: 
-                    #     print("(SERIAL) received: ", message_str_encoded)
-
         server_thread.join()
-
 
     except (KeyboardInterrupt, SystemExit):
         db.print_last_ten_values()
         db.close()
         server.shutdown()
         server.server_close()
-        # f.close()
         ser.close()
         exit()

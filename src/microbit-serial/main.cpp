@@ -56,13 +56,12 @@ void send_encrypt_RF(ManagedString s){
 
 
 bool check_dmst(ManagedString s) {
-    return s.substring(0, sizeof(CODE)) == CODE;
+    return s.substring(0, CODE.length()) == CODE;
 }
 
 void onData(MicroBitEvent) {
     // received data from microbit radio
     ManagedString recData = uBit.radio.datagram.recv();
-
     if (check_dmst(recData)) {
         char* decryptedText = decode_RF(recData);
         serial.send(decryptedText);

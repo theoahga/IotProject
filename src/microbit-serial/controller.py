@@ -130,17 +130,18 @@ def extractDataFromSerial(data):
     try:
         # Exemple de chaîne de données
         # T:23.45;L:500;1635486321
+        # T:23.45;L:500
         parts = data.split(';')
 
         temperature = float(parts[0].split(':')[1])
         lux = float(parts[1].split(':')[1])
-        timestamp = int(parts[2])
+        # timestamp = int(parts[2])
 
-        return temperature, lux, timestamp
+        return temperature, lux #, timestamp
 
     except (ValueError, IndexError) as e:
         print(f"Erreur lors de l'extraction des données: {e}")
-        return -1, -1, -1
+        return -1, -1 #, -1
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -160,7 +161,6 @@ if __name__ == '__main__':
 
     delimiter = b"|"
     buffer = b""
-    message_str = ""
     
     try:
         # Start a thread with the server
@@ -173,27 +173,29 @@ if __name__ == '__main__':
                 data_new = ser.read(ser.inWaiting())
                 # We use a buffer to store the data until we find the delimiter
                 buffer += data_new
-                # print("Buffer after reading data:", buffer)
+                print("Buffer after reading data:", buffer)
                 while delimiter in buffer:
                     message, buffer = buffer.split(delimiter, 1)
                     message_str_encoded = message.decode('utf-8')
-                    message_str_decoded = decrypt(message_str_encoded, KEY) 
+                    # message_str_decoded = decrypt(message_str_encoded, KEY) 
                     
                     print("(SERIAL) received (encoded): " + message_str_encoded)
-                    print("(SERIAL) received (decoded): " + message_str_decoded + "\n")
+                    # print("(SERIAL) received (decoded): " + message_str_decoded + "\n")
 
                     # sendUARTMessage("TL")
                     # time.sleep(1)
                     # Extract data if message is not LT or TL
-                    if message_str_decoded not in MICRO_COMMANDS:
-                        temp, lux, timestamp = extractDataFromSerial(message_str_decoded)
+                    # if message_str_decoded not in MICRO_COMMANDS:
+                    if message_str_encoded not in MICRO_COMMANDS:
+                        # temp, lux = extractDataFromSerial(message_str_decoded)
+                        temp, lux = extractDataFromSerial(message_str_encoded)
                         # Insert data in database
                         if db.insert_data(temp, lux, datetime.now()):
                             print("Data inserted in database :", temp, lux, datetime.now())
                         else:
                             print("Error while inserting data in database")
-                    else: 
-                        print("(SERIAL) received: ", message_str_decoded)
+                    # else: 
+                    #     print("(SERIAL) received: ", message_str_encoded)
 
         server_thread.join()
 
